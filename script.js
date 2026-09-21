@@ -52,7 +52,8 @@ function showPage(position,{updateHash=true,focus=false}={}){
   current=target;
   index.value=String(target);
   next.disabled=target===slides.length-1;
-  slides[target].append(nav);
+  const navSlot=slides[target].querySelector('.appendix7-nav-slot');
+  (navSlot||slides[target]).append(nav);
 
   if(updateHash)history.replaceState(null,'','#'+slides[target].id);
   document.querySelector('#viewer')?.scrollTo({top:0,behavior:'instant'});
