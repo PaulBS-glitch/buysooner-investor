@@ -15,19 +15,19 @@
     cards.forEach(card=>{card.style.width='';card.style.left='';card.style.top='';});
     centre.style.left='';centre.style.top='';cycle.style.height='';
     if(desktop){
-      const width=cycle.clientWidth,gap=38,w=(width-2*gap)/3;
+      const width=cycle.clientWidth,gap=22,w=(width-2*gap)/3;
       cards.forEach(card=>card.style.width=w+'px');
       const heights=cards.map(card=>card.offsetHeight),ch=centre.offsetHeight;
       const upper=Math.max(heights[5],heights[1]),lower=Math.max(heights[4],heights[2]);
-      const height=Math.max(heights[0]+ch+heights[3]+36,upper+lower+42);
-      const sideStart=(height-upper-lower-42)/2;
+      const height=Math.max(heights[0]+ch+heights[3]+18,upper+lower+20);
+      const sideStart=(height-upper-lower-20)/2;
       cycle.style.height=height+'px';
       const place=(i,x,y)=>{cards[i].style.left=x+'px';cards[i].style.top=y+'px';};
       place(0,w+gap,0);place(3,w+gap,height-heights[3]);
       const leftStart=sideStart;
       const rightStart=sideStart;
-      place(5,0,leftStart+(upper-heights[5])/2);place(4,0,leftStart+upper+42+(lower-heights[4])/2);
-      place(1,2*(w+gap),rightStart+(upper-heights[1])/2);place(2,2*(w+gap),rightStart+upper+42+(lower-heights[2])/2);
+      place(5,0,leftStart+(upper-heights[5])/2);place(4,0,leftStart+upper+20+(lower-heights[4])/2);
+      place(1,2*(w+gap),rightStart+(upper-heights[1])/2);place(2,2*(w+gap),rightStart+upper+20+(lower-heights[2])/2);
       centre.style.left=(width-centre.offsetWidth)/2+'px';
       centre.style.top=heights[0]+(height-heights[0]-heights[3]-ch)/2+'px';
     }
