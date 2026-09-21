@@ -1,5 +1,7 @@
 const slides=[...document.querySelectorAll('.slide')];
 const index=document.querySelector('#index');
+const previous=document.querySelector('#previous');
+const contentsButton=document.querySelector('#contents-button');
 const next=document.querySelector('#next');
 const nav=document.querySelector('#presentation-nav');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -69,9 +71,14 @@ function showPage(position,{updateHash=true,focus=false}={}){
   slides.forEach((slide,i)=>slide.hidden=i!==target);
   current=target;
   index.value=String(target);
+  if(previous)previous.disabled=target===0;
   next.disabled=target===slides.length-1;
   const navSlot=slides[target].querySelector('.presentation-nav-slot,.appendix7-nav-slot');
-  (navSlot||slides[target]).append(nav);
+  if(slides[target].id==='contents'){
+    nav.remove();
+  }else{
+    (navSlot||slides[target]).append(nav);
+  }
 
   if(updateHash)history.replaceState(null,'','#'+slides[target].id);
   document.querySelector('#viewer')?.scrollTo({top:0,behavior:'instant'});
@@ -85,6 +92,24 @@ function showPage(position,{updateHash=true,focus=false}={}){
   });
 }
 
+async function enterPresentationFullscreen(){
+  const root=document.documentElement;
+  if(document.fullscreenElement||!root?.requestFullscreen)return;
+  try{await root.requestFullscreen();}catch(_){}
+}
+
+document.querySelectorAll('[data-presentation-target]').forEach(link=>{
+  link.addEventListener('click',async event=>{
+    event.preventDefault();
+    const target=slides.findIndex(slide=>slide.id===link.dataset.presentationTarget);
+    if(target<0)return;
+    await enterPresentationFullscreen();
+    showPage(target,{focus:true});
+  });
+});
+
+if(previous)previous.addEventListener('click',()=>showPage(current-1));
+if(contentsButton)contentsButton.addEventListener('click',()=>showPage(0,{focus:true}));
 next.addEventListener('click',()=>showPage(current+1));
 index.addEventListener('change',()=>showPage(Number(index.value)));
 
