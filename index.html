@@ -5,9 +5,9 @@
 <title>BuySooner | Investor presentation</title>
 <link rel="stylesheet" href="./styles.css">
 <link rel="stylesheet" href="./waiting.css">
-<link rel="stylesheet" href="./portfolio.css">
+<link rel="stylesheet" href="./portfolio.css?v=20260921-matrix">
 <link rel="stylesheet" href="./capital-cycle.css">
-<link rel="stylesheet" href="./worked-example.css?v=20260921-split6">
+<link rel="stylesheet" href="./worked-example.css?v=20260921-split6b">
 <link rel="stylesheet" href="./presentation.css">
 <link rel="stylesheet" href="./refinement.css?v=20260921-slideviewer2">
 </head>
@@ -1216,37 +1216,61 @@
 </div>
 </section>
 <section class="slide appendix-detail portfolio-controls-detail enhanced-slide" id="appendix-5">
-<div class="slide-head reveal">
+<div class="slide-head">
 <p class="eyebrow">Appendix 5 / Portfolio construction and concentration controls</p>
 <h1>Portfolio risk is controlled by the shape of the pool, not only by individual approvals.</h1>
 <p class="intro">BuySooner monitors concentration by geography, property type, contribution band, origination vintage and expected exit timing, with authority to tighten settings as risk indicators change.</p>
 </div>
 <div class="slide-body">
-<div class="portfolio-controls-layout">
-<div class="portfolio-control-list">
-<article class="portfolio-control-row reveal"><span>01</span><div><h3>Geography and postcode clustering</h3><p>Monitor state, metropolitan area, postcode and local market concentration so exposure does not accumulate in a narrow property market.</p></div></article>
-<article class="portfolio-control-row reveal"><span>02</span><div><h3>Property type and liquidity</h3><p>Control exposure to houses, townhouses and apartments, and restrict non-standard, illiquid or oversupplied property segments.</p></div></article>
-<article class="portfolio-control-row reveal"><span>03</span><div><h3>Contribution band mix</h3><p>Track exposure across Core Retail, Elevated Retail, Structured and Exception bands so higher-contribution files do not dominate the pool.</p></div></article>
-<article class="portfolio-control-row reveal"><span>04</span><div><h3>Vintage and exit timing</h3><p>Monitor settlement cohorts, Year 3 review dates, Year 5 endpoint risk and potential refinance or sale-exit clustering.</p></div></article>
+<section class="portfolio-matrix" aria-labelledby="portfolio-matrix-title">
+<div class="portfolio-matrix-heading">
+<p class="eyebrow">Portfolio control framework</p>
+<h2 id="portfolio-matrix-title">Risk domain → policy focus → trigger → management response</h2>
 </div>
-<aside class="portfolio-action-panel reveal">
-<p class="eyebrow">Management actions</p>
-<h2>Portfolio indicators should change origination behaviour.</h2>
-<p>The control is not just reporting. Credit and management must be able to tighten criteria before concentration becomes capital risk.</p>
-<div class="portfolio-action-table" aria-label="Portfolio indicators and actions">
-<div><h3>Geographic clustering</h3><p>Restrict locations or slow origination.</p></div>
-<div><h3>High contribution drift</h3><p>Reduce limits or require escalation.</p></div>
-<div><h3>Property-type concentration</h3><p>Restrict higher-risk property types.</p></div>
-<div><h3>Exit timing cluster</h3><p>Stagger originations or prioritise exits.</p></div>
-<div><h3>Weakening refinance conditions</h3><p>Tighten assumptions or pause marginal deals.</p></div>
+<div class="portfolio-matrix-table" role="table" aria-label="Portfolio risk controls and management responses">
+<div class="portfolio-matrix-header" role="row">
+<span role="columnheader">Risk domain</span>
+<span role="columnheader">Policy focus</span>
+<span role="columnheader">Dynamic trigger</span>
+<span role="columnheader">Management response</span>
 </div>
-<div class="portfolio-discipline"><p class="eyebrow">Portfolio discipline</p><h3>Concentration is an approval and monitoring issue.</h3><p>The same credit settings that approve transactions must also govern the composition and risk profile of the portfolio.</p></div>
-</aside>
+<article class="portfolio-matrix-row" role="row">
+<div role="cell"><span class="matrix-number">01</span><strong>Geography &amp; postcode clustering</strong></div>
+<p role="cell">State, metropolitan area, postcode and local-market concentration.</p>
+<p role="cell">Exposure begins to accumulate in a narrow property market.</p>
+<p role="cell">Restrict locations or slow origination.</p>
+</article>
+<article class="portfolio-matrix-row" role="row">
+<div role="cell"><span class="matrix-number">02</span><strong>Property type &amp; liquidity</strong></div>
+<p role="cell">Houses, townhouses and apartments; restrict non-standard, illiquid or oversupplied segments.</p>
+<p role="cell">Property-type concentration rises or liquidity conditions weaken.</p>
+<p role="cell">Restrict higher-risk property types.</p>
+</article>
+<article class="portfolio-matrix-row" role="row">
+<div role="cell"><span class="matrix-number">03</span><strong>Contribution band mix</strong></div>
+<p role="cell">Core Retail, Elevated Retail, Structured and Exception contribution bands.</p>
+<p role="cell">Higher-contribution files begin to dominate the pool.</p>
+<p role="cell">Reduce limits or require escalation.</p>
+</article>
+<article class="portfolio-matrix-row" role="row">
+<div role="cell"><span class="matrix-number">04</span><strong>Vintage &amp; exit timing</strong></div>
+<p role="cell">Settlement cohorts, Year 3 reviews, Year 5 endpoint risk and refinance timing.</p>
+<p role="cell">Refinance or sale-exit clustering, or weakening refinance conditions.</p>
+<p role="cell">Stagger originations, prioritise exits, tighten assumptions or pause marginal deals.</p>
+</article>
 </div>
-<div class="appendix-takeaway reveal">
-<p><strong>Appendix takeaway:</strong> Portfolio risk is managed through concentration monitoring, contribution-band discipline, property liquidity controls, vintage tracking and authority to tighten origination settings before risk becomes capital impairment.</p>
-<a class="appendix-back" href="#appendices">↑ Back to appendices</a>
+</section>
+<section class="portfolio-governance" aria-label="Portfolio governance">
+<div>
+<p class="eyebrow">Portfolio discipline</p>
+<h3>Concentration is an approval and monitoring issue.</h3>
 </div>
+<p>The same credit settings that approve transactions must also govern the composition and risk profile of the portfolio. The control is not just reporting: management must be able to tighten criteria before concentration becomes capital risk.</p>
+</section>
+</div>
+<div class="portfolio-footer">
+<p class="portfolio-takeaway"><strong>Appendix takeaway:</strong> portfolio indicators are designed to change origination behaviour before concentration becomes capital impairment.</p>
+<div class="presentation-nav-slot" aria-label="Presentation navigation position"></div>
 </div>
 </section>
 <section class="slide appendix-detail worked-example-detail enhanced-slide" id="appendix-6">
@@ -1281,7 +1305,6 @@
 </dl>
 </article>
 </div>
-<p class="worked-strap">You have the income. We bridge the gap. You own the future.</p>
 </section>
 
 <section class="investment-split reveal" aria-labelledby="investment-split-title">
@@ -1319,8 +1342,7 @@
 <p class="intro">You have the income. We bridge the gap. You own the future.</p>
 </div>
 <div class="slide-body">
-<section class="honest-tradeoff honest-tradeoff-expanded" aria-labelledby="honest-tradeoff-6a-title">
-<h2 id="honest-tradeoff-6a-title"><span>The Honest Trade-Off</span></h2>
+<section class="honest-tradeoff honest-tradeoff-expanded" aria-label="The Honest Trade-Off">
 <div class="tradeoff-grid">
 <article><span class="tradeoff-icon" aria-hidden="true">⚖</span><h3>The Reality</h3><p>BuySooner risks $100,000 of its capital to bridge your deposit gap today.</p></article>
 <article><span class="tradeoff-icon" aria-hidden="true">↻</span><h3>The Trade</h3><p>When you refinance, BuySooner is repaid its original contribution plus the participation component.</p></article>
@@ -1328,7 +1350,6 @@
 <article><span class="tradeoff-icon" aria-hidden="true">🔑</span><h3>The Point</h3><p>You own the home from Day 1. BuySooner provides the capital to start sooner.</p></article>
 </div>
 </section>
-<p class="worked-strap worked-strap-large">You have the income. We bridge the gap. You own the future.</p>
 </div>
 <div class="appendix6-footer">
 <p class="appendix6-takeaway"><strong>Appendix 6A:</strong> The Honest Trade-Off separates the customer value exchange from the worked transaction economics.</p>
@@ -1464,7 +1485,7 @@
 </select>
 <button id="next">Next →</button>
 </div>
-<script src="./script.js?v=20260921-slideviewer3">
+<script src="./script.js?v=20260921-slideviewer4">
 </script>
 <script src="./waiting.js">
 </script>
@@ -1472,7 +1493,7 @@
 </script>
 <script src="./capital-cycle.js">
 </script>
-<script src="./presentation.js?v=20260921-split6"></script>
+<script src="./presentation.js?v=20260921-appendix-system"></script>
 
 
 </body></html>
