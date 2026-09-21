@@ -1,6 +1,7 @@
 /* Page-scoped explanatory sequences. Layout and financial calculations are independent. */
 (()=>{
   const media=matchMedia('(prefers-reduced-motion: reduce)');
+  const compactMotion=matchMedia('(max-width:620px)');
   const sections=[...document.querySelectorAll('.enhanced-slide')];
   const NS='http://www.w3.org/2000/svg';
   const state=new WeakMap();
@@ -10,7 +11,9 @@
   function stop(page){(state.get(page)||[]).forEach(a=>a.cancel());state.set(page,[]);}
   function animate(page,node,frames,delay=0,duration=480){
     if(!node||media.matches||!node.animate)return;
-    const a=node.animate(frames,{duration,delay,easing:'cubic-bezier(.2,.65,.25,1)',fill:'backwards'});
+    const isMain=/^page-(?:[1-9]|1\\d|2[01])$/.test(page?.id||'');
+    const pace=isMain&&compactMotion.matches?.72:1;
+    const a=node.animate(frames,{duration:Math.round(duration*pace),delay:Math.round(delay*pace),easing:'cubic-bezier(.2,.65,.25,1)',fill:'backwards'});
     state.get(page).push(a);
     a.finished.then(()=>a.cancel()).catch(()=>{});
   }
