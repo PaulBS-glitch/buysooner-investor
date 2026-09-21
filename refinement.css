@@ -814,85 +814,150 @@ html{scroll-padding-top:0}
 }
 
 /* =====================================================================
-   PRESENTATION PAGE FRAME — entire deck
-   Desktop/laptop: one exact viewport page per slide.
-   Mobile/tablet: responsive, readable, natural vertical height.
-   Internal page layouts remain untouched.
+   EMBEDDED SLIDE VIEWER
+   Desktop/laptop: one fixed screen, one active slide, no document scroll.
+   Navigation belongs to the active slide and contains only the page selector
+   and Next. Mobile keeps internal reading scroll for accessibility.
    ===================================================================== */
 
 @media (min-width:951px){
   :root{
     --bs-header-h:50px;
-    --bs-footer-h:66px;
-    --bs-page-h:calc(100dvh - var(--bs-header-h) - var(--bs-footer-h));
+    --bs-page-h:calc(100dvh - var(--bs-header-h));
   }
 
-  html{
-    scroll-snap-type:y mandatory;
-    scroll-padding-top:var(--bs-header-h);
+  html,
+  body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    overscroll-behavior:none;
   }
 
   body{
-    overflow-x:hidden;
-    padding-bottom:var(--bs-footer-h);
+    display:grid;
+    grid-template-rows:var(--bs-header-h) minmax(0,1fr);
+    padding:0;
   }
 
   header{
+    position:relative;
+    top:auto;
     height:var(--bs-header-h);
     min-height:var(--bs-header-h);
     padding:8px 4vw;
   }
 
-  footer{
-    height:var(--bs-footer-h);
-    min-height:var(--bs-footer-h);
-    padding:8px 3vw;
-    flex-wrap:nowrap;
+  #viewer,
+  #deck{
+    width:100%;
+    height:100%;
+    min-height:0;
+    overflow:hidden;
   }
 
-  /* Applies to Pages 1–21, appendix directory, Appendices 1–7 and disclaimer. */
   #deck > .slide.enhanced-slide{
     box-sizing:border-box;
+    position:relative;
+    width:100%;
     height:var(--bs-page-h);
     min-height:var(--bs-page-h);
     max-height:var(--bs-page-h);
-    scroll-margin-top:var(--bs-header-h);
-    scroll-snap-align:start;
-    scroll-snap-stop:always;
+    overflow:hidden;
+    scroll-margin:0;
+  }
+
+  #deck > .slide.enhanced-slide .page-footer{
+    min-height:54px;
+    padding-right:min(535px,48vw);
+  }
+
+  .presentation-nav{
+    position:absolute;
+    right:clamp(18px,3.4vw,54px);
+    bottom:10px;
+    z-index:30;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:min(510px,calc(100% - 36px));
+    padding:5px;
+    border:1px solid #294950;
+    border-radius:6px;
+    background:#071d23;
+    box-shadow:0 5px 18px rgba(7,29,35,.16);
+  }
+
+  .presentation-nav select{
+    flex:1 1 auto;
+    min-width:0;
+    height:38px;
+    padding:7px 34px 7px 12px;
+    background:#16383f;
+  }
+
+  .presentation-nav #next{
+    flex:0 0 auto;
+    height:38px;
+    padding:7px 16px;
+    white-space:nowrap;
+  }
+}
+
+@media (max-width:950px){
+  html,
+  body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+  }
+
+  body{
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr);
+    padding:0;
+  }
+
+  header{
+    position:relative;
+    top:auto;
+  }
+
+  #viewer{
+    min-height:0;
     overflow-x:hidden;
     overflow-y:auto;
     overscroll-behavior-y:contain;
   }
 
-  /* Keep the page itself visually clean while still allowing dense pages to scroll internally. */
   #deck > .slide.enhanced-slide{
-    scrollbar-width:thin;
-    scrollbar-color:#9bb5b1 transparent;
-  }
-  #deck > .slide.enhanced-slide::-webkit-scrollbar{width:7px}
-  #deck > .slide.enhanced-slide::-webkit-scrollbar-track{background:transparent}
-  #deck > .slide.enhanced-slide::-webkit-scrollbar-thumb{
-    background:#9bb5b1;
-    border-radius:8px;
-  }
-}
-
-/* Tablets and phones must remain readable rather than being shrunk into a fixed desktop frame. */
-@media (max-width:950px){
-  html{
-    scroll-snap-type:none;
-    scroll-padding-top:0;
-  }
-
-  body{
-    overflow-x:hidden;
-  }
-
-  #deck > .slide.enhanced-slide{
+    position:relative;
     height:auto;
     max-height:none;
-    min-height:calc(100svh - 118px);
+    min-height:100%;
     overflow:visible;
-    scroll-margin-top:70px;
+    scroll-margin:0;
+  }
+
+  .presentation-nav{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    width:calc(100% - 32px);
+    margin:24px 16px 8px;
+    padding:6px;
+    border:1px solid #294950;
+    border-radius:6px;
+    background:#071d23;
+  }
+
+  .presentation-nav select{
+    flex:1 1 auto;
+    min-width:0;
+  }
+
+  .presentation-nav #next{
+    flex:0 0 auto;
+    white-space:nowrap;
   }
 }
