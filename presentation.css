@@ -1,0 +1,154 @@
+/* Institutional presentation refinements, scoped to the eight requested pages. */
+.enhanced-slide{--flow:#159f86;--flow-muted:#70908f;scroll-margin-top:70px}
+.enhanced-slide .reveal,.enhanced-slide .in-view,.enhanced-slide .stack-diagram i,.enhanced-slide .amount-track i{animation:none!important}
+.enhanced-slide .number{font-variant-numeric:tabular-nums}
+.enhanced-slide .diagram-surface{position:relative;isolation:isolate}
+.diagram-links{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:-1}
+.diagram-link{fill:none;stroke:var(--flow);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.diagram-link.secondary{stroke:var(--flow-muted);stroke-width:1.6}
+.diagram-link.recycle{stroke:#477bea;stroke-width:2.6}
+.enhanced-slide .card{box-shadow:0 3px 12px #102e3506}
+.enhanced-slide:not(.appendix-detail){padding:24px clamp(24px,3.5vw,56px) 18px}
+.enhanced-slide:not(.appendix-detail) .eyebrow{margin-bottom:10px}
+.enhanced-slide:not(.appendix-detail) .slide-head h1{font-size:clamp(28px,2.5vw,40px);margin-bottom:14px;line-height:1.1}
+.enhanced-slide:not(.appendix-detail) .intro{font-size:16px;line-height:1.45;margin-bottom:18px}
+.enhanced-slide:not(.appendix-detail) .grid{gap:30px;margin:16px 0}
+.enhanced-slide:not(.appendix-detail) .card{padding:18px}
+.enhanced-slide:not(.appendix-detail) h3{font-size:19px;margin-bottom:10px}
+.enhanced-slide:not(.appendix-detail) p{line-height:1.4}
+.enhanced-slide:not(.appendix-detail) .callout{margin:18px 0 0;padding:14px 18px;font-size:16px}
+.enhanced-slide:not(.appendix-detail) .page-footer{padding-top:10px;margin-top:16px}
+/* One connected waterfall: stages and matching cash values share a rhythm. */
+#page-11 .grid.two{grid-template-columns:1.08fr 1fr;gap:58px;align-items:stretch}
+#page-11 .waterfall .card{position:relative;min-height:65px;padding:12px 16px;margin:0 0 22px;display:flex;gap:12px;align-items:center}
+#page-11 .waterfall .card:last-child{margin-bottom:0}
+#page-11 .waterfall .card p{margin:0;font-size:16px}
+#page-11 .step{flex:none;display:grid;place-items:center;width:28px;height:28px;font-size:18px;background:#e8f7f2;border-radius:50%}
+#page-11 .exit{padding:18px 22px}
+#page-11 .exit-item{margin:12px 0 16px;padding:4px 8px;border-radius:3px}
+#page-11 .exit-item .caption{margin:0 0 4px}
+#page-11 .exit-item .number{font-size:32px;margin:0 0 8px}
+#page-11 .exit-item:nth-child(2) .number{font-size:42px}
+#page-11 .exit-item:nth-child(4) .number{font-size:28px}
+#page-11 .exit>p:not(.eyebrow){font-size:14px;margin:10px 0 0}
+/* Preferred full take-out is a direct top route; fallback is a separate branch. */
+#page-8 .refinance-pathways{grid-template-columns:1fr 1fr;gap:32px 48px;padding-left:22px}
+#page-8 .plan-a{grid-column:1;grid-row:1;border-top-color:#159f86;border-left:4px solid #159f86}
+#page-8 .plan-endpoint{grid-column:2;grid-row:1;align-self:center;background:#103740;color:#e6faf4;padding:24px;border-left:4px solid #55dfbc}
+.plan-endpoint span,.plan-endpoint strong{display:block}.plan-endpoint span{font-size:13px;letter-spacing:.1em;color:#65e6c3;margin-bottom:10px}.plan-endpoint strong{font-size:25px;line-height:1.2}
+#page-8 .plan-b,#page-8 .plan-later{border-top:2px solid #93aaa8;background:#edf3f1}
+#page-8 .card p{margin:6px 0;font-size:16px}
+#page-8 .card p:nth-child(2){font-size:13px;letter-spacing:.08em;color:#087a68;font-weight:700}
+#page-8 .card p:nth-child(3){font-weight:700}
+#page-8 .plan-a{display:grid;grid-template-columns:140px 1fr;column-gap:16px}
+#page-8 .plan-a h3,#page-8 .plan-a p:nth-child(2),#page-8 .plan-a p:nth-child(3){grid-column:1}
+#page-8 .plan-a p:last-child{grid-column:2;grid-row:1/4}
+/* Keep the risk table intact; duration is the reading anchor. */
+#page-7 table{table-layout:fixed}
+#page-7 th:nth-child(1){width:24%}#page-7 th:nth-child(2){width:20%}#page-7 th:nth-child(3){width:38%}#page-7 th:nth-child(4){width:18%}
+#page-7 th,#page-7 td{padding:16px 18px;line-height:1.35;vertical-align:middle}
+#page-7 td:last-child{font-weight:800;font-size:23px;color:#087a68;background:#e5f4ee;border-left:3px solid #c8e5dc;white-space:nowrap}
+#page-7 tr:nth-child(4) td{border-top:3px solid #98b9af}
+#page-7 tr:nth-child(5) td:last-child{background:#d4e6e4;color:#214f56}
+#page-7 tr:last-child{background:#f0f3f2}#page-7 tr:last-child td:last-child{background:#dce3e8;color:#233f53}
+/* Capital architecture: labelled rows align exactly with each stack layer. */
+#page-18 .slide-body{display:grid;grid-template-columns:1fr 1.55fr;gap:0 30px}
+#page-18 .slide-body>.eyebrow,#page-18 .slide-body>p{grid-column:1/-1}
+#page-18 .architecture-stack{height:300px;display:flex;flex-direction:column;gap:3px;margin:8px 0 16px;grid-column:1;grid-row:2;overflow:visible}
+#page-18 .architecture-stack i{min-height:0;flex:var(--portion);transform-origin:bottom}
+#page-18 .architecture-stack i:nth-child(1){background:#133f4a}#page-18 .architecture-stack i:nth-child(2){background:#4ebda6}#page-18 .architecture-stack i:nth-child(3){background:#3b6be5}
+#page-18 .architecture-stack i span{font-size:18px}
+#page-18 .architecture-labels{grid-column:2;grid-row:2;display:grid;grid-template-rows:8fr 1fr 1fr;grid-template-columns:1fr;gap:3px;margin:8px 0 16px;height:300px}
+#page-18 .architecture-labels .card{display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;border-left:4px solid #133f4a;padding:0 18px;position:relative}
+#page-18 .architecture-labels .card::before{content:"";position:absolute;width:30px;right:100%;border-top:1px solid #9bb7b0}
+#page-18 .architecture-labels .card:nth-of-type(2){border-left-color:#4ebda6}#page-18 .architecture-labels .card:nth-of-type(3){border-left-color:#3b6be5;background:#eaf0ff}
+#page-18 .architecture-labels h3,#page-18 .architecture-labels p{margin:0;font-size:18px;line-height:1.15}
+#page-18 .architecture-labels h3{margin-right:auto}
+#page-18 .architecture-labels .card:first-child p{font-size:30px}
+#page-18 .slide-body>p:not(.eyebrow):not(.callout){margin:8px 0;font-size:16px}
+/* Transaction lifecycle retains its existing labels and literal arrows. */
+#page-5 .purchase{font-size:22px;margin:0}
+#page-5 .stack-diagram{height:58px;margin:12px 0}
+#page-5 .funding-cards{margin:12px 0 24px;gap:16px}
+#page-5 .funding-cards .number{font-size:30px;margin:8px 0}
+#page-5 .funding-cards p{font-size:16px}
+#page-5 .transaction-lifecycle{gap:36px}
+#page-5 .transaction-lifecycle .card{border-top:0;border-left:3px solid #159f86;display:flex;align-items:center;background:#e7f2ee}
+#page-5 .transaction-lifecycle h3{font-size:17px;margin:0}
+/* Exit controls are sequenced, not a set of equally weighted outcomes. */
+#appendix-4 .exit-risk-layout{gap:54px}
+#appendix-4 .exit-risk-list{border-top:0;padding-left:6px}
+#appendix-4 .exit-risk-row{background:#fff;border:1px solid #d6e4e0;padding:20px 18px;margin:0 0 30px;grid-template-columns:38px 1fr}
+#appendix-4 .exit-risk-row>span{font-size:23px;letter-spacing:0}
+#appendix-4 .exit-class-row:first-child{background:#e5f5ef;border-left:4px solid #159f86;padding-left:14px}
+#appendix-4 .exit-class-row:not(:first-child){border-left:2px solid #cad9d5;padding-left:16px}
+#appendix-4 .exit-class-row h3{font-size:17px}
+/* Compact clockwise cycle; no position depends on an animation transform. */
+#appendix-7{padding:24px clamp(24px,3vw,46px)}
+#appendix-7 .slide-head h1{font-size:34px;margin-bottom:12px}
+#appendix-7 .eyebrow{margin-bottom:10px}
+#appendix-7 .intro{font-size:16px;line-height:1.4;margin-bottom:22px}
+#appendix-7 .capital-cycle{margin-bottom:22px}
+#appendix-7 .cycle-centre{width:188px;min-height:188px;padding:17px;box-shadow:0 3px 10px #071d2310}
+#appendix-7 .cycle-centre h2{font-size:23px;margin-bottom:9px}
+#appendix-7 .cycle-centre p{font-size:14px}
+#appendix-7 .cycle-centre .eyebrow{font-size:10px;margin-bottom:7px}
+#appendix-7 .capital-recycled{font-size:10px;margin-top:8px;padding:5px 7px}
+#appendix-7 .cycle-stage{padding:14px 16px;box-shadow:0 3px 10px #10374008}
+#appendix-7 .cycle-stage .stage-number{font-size:27px;right:14px;top:12px}
+#appendix-7 .cycle-stage .eyebrow{font-size:12px;min-height:18px;margin:0 40px 7px 0}
+#appendix-7 .cycle-stage h3{font-size:18px;margin-bottom:7px}
+#appendix-7 .cycle-stage p,#appendix-7 .cycle-stage li{font-size:14px;line-height:1.35}
+#appendix-7 .cycle-stage ul{margin:5px 0;padding-left:17px}
+#appendix-7 .cycle-stage li{margin:2px 0}
+#appendix-7 .underwriting-gates{gap:9px}
+#appendix-7 .underwriting-gates strong{font-size:13px}
+#appendix-7 .fallback-branch{margin-top:8px;padding:8px 10px}
+#appendix-7 .investor-callout{box-shadow:none}
+/* Calculated values keep stable digit widths during short transitions. */
+#appendix-6 [data-worked]{font-variant-numeric:tabular-nums;white-space:nowrap}
+#appendix-6 .value-updated{animation:none}
+#appendix-6 .worked-forecast:focus-within{outline:2px solid #159f86;outline-offset:3px}
+#appendix-6 .worked-numbers,#appendix-6 .investment-split,#appendix-6 .worked-bottom-line{border-radius:8px;box-shadow:none}
+@media(min-width:1000px) and (max-height:820px){
+.enhanced-slide:not(.appendix-detail){padding-top:18px;padding-bottom:12px}
+.enhanced-slide:not(.appendix-detail) .slide-head h1{font-size:30px;margin-bottom:10px}
+.enhanced-slide:not(.appendix-detail) .intro{margin-bottom:12px}
+.enhanced-slide:not(.appendix-detail) .callout{margin-top:12px;padding:10px 16px}
+.enhanced-slide:not(.appendix-detail) .page-footer{margin-top:10px;padding-top:8px}
+#page-8 .refinance-pathways{gap:26px 40px;margin:10px 0}
+#page-8 .card{padding:12px 16px}#page-8 .card p{line-height:1.3}
+#page-11 .waterfall .card{margin-bottom:18px;padding:10px 14px;min-height:58px}
+#page-11 .exit{padding:12px 18px}#page-11 .exit-item{margin:8px 0}
+#page-7 th,#page-7 td{padding:12px 16px}
+#page-18 .architecture-stack,#page-18 .architecture-labels{height:260px}
+}
+@media(max-width:999px){
+#page-8 .plan-a{display:block}
+#page-11 .grid.two{gap:36px}
+#page-5 .funding-cards,#page-5 .transaction-lifecycle{grid-template-columns:repeat(3,minmax(0,1fr))}
+#page-5 .funding-cards .number{font-size:24px}
+#appendix-4 .exit-risk-layout{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+.enhanced-slide:not(.appendix-detail){padding:24px 20px}
+#page-8 .refinance-pathways{grid-template-columns:1fr;padding-left:22px;gap:32px}
+#page-8 .plan-a,#page-8 .plan-endpoint{grid-column:1;grid-row:auto}
+#page-11 .grid.two{grid-template-columns:1fr;gap:30px}
+#page-5 .funding-cards,#page-5 .transaction-lifecycle{grid-template-columns:1fr;gap:30px}
+#page-7 .table-scroll{overflow:visible}#page-7 table{font-size:14px}#page-7 th,#page-7 td{min-width:0;padding:10px 5px;overflow-wrap:anywhere}
+#page-7 th{font-size:10px}#page-7 td:last-child{font-size:16px;white-space:normal}
+#page-18 .slide-body{grid-template-columns:1fr 2fr;column-gap:16px}
+#page-18 .architecture-labels .card{padding:0 8px;gap:5px;flex-wrap:wrap;align-content:center}
+#page-18 .architecture-labels .card::before{width:16px}
+#page-18 .architecture-labels h3{font-size:14px;width:100%;margin:0}
+#page-18 .architecture-labels p,#page-18 .architecture-labels .card:first-child p{font-size:16px}
+#page-18 .architecture-stack,#page-18 .architecture-labels{height:460px}
+#appendix-7 .slide-head h1{font-size:30px}
+#appendix-7 .cycle-stage p,#appendix-7 .cycle-stage li{font-size:16px}
+#appendix-4 .exit-risk-row{padding:16px 12px}
+}
+@media(prefers-reduced-motion:reduce){.enhanced-slide *{animation:none!important;transition:none!important}}
+#page-11 .grid.two{padding-left:22px}
+.diagram-link.classification{stroke:var(--flow-muted);stroke-width:1.6}
+@media(max-width:999px){#appendix-4 .exit-risk-layout{padding-left:24px}}
