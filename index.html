@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="./capital-cycle.css">
 <link rel="stylesheet" href="./worked-example.css">
 <link rel="stylesheet" href="./presentation.css">
-<link rel="stylesheet" href="./refinement.css?v=20260921-pageframe1">
+<link rel="stylesheet" href="./refinement.css?v=20260921-slideviewer1">
 </head>
 <body>
 <header>
@@ -1418,9 +1418,8 @@
 </section>
 </div>
 </main>
-<footer>
-<button id="prev" disabled="">← Previous</button>
-<label class="sr-only" for="index">Page index</label>
+<div id="presentation-nav" class="presentation-nav" role="navigation" aria-label="Presentation navigation">
+<label class="sr-only" for="index">Choose a page</label>
 <select id="index">
 <option value="0">01 — Homeownership, accelerated.</option>
 <option value="1">02 — Investment thesis</option>
@@ -1453,13 +1452,9 @@
 <option value="28">29 — Appendix 7 — Investor capital cycle</option>
 <option value="29">30 — Important notice</option>
 </select>
-<output id="count" aria-live="polite">1 / 30</output>
 <button id="next">Next →</button>
-<button id="minus" aria-label="Zoom out">−</button>
-<button id="fit">Fit</button>
-<button id="plus" aria-label="Zoom in">+</button>
-</footer>
-<script src="./script.js">
+</div>
+<script src="./script.js?v=20260921-slideviewer1">
 </script>
 <script src="./waiting.js">
 </script>
