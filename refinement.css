@@ -814,37 +814,85 @@ html{scroll-padding-top:0}
 }
 
 /* =====================================================================
-   MAIN DECK SAFE GLOBAL FRAME — Pages 1–21
-   Only outer presentation behavior is global.
-   Bespoke page grids, cards, diagrams, tables and typography remain page-scoped.
+   PRESENTATION PAGE FRAME — entire deck
+   Desktop/laptop: one exact viewport page per slide.
+   Mobile/tablet: responsive, readable, natural vertical height.
+   Internal page layouts remain untouched.
    ===================================================================== */
 
 @media (min-width:951px){
-  html{
-    scroll-snap-type:y proximity;
-    scroll-padding-top:50px;
+  :root{
+    --bs-header-h:50px;
+    --bs-footer-h:66px;
+    --bs-page-h:calc(100dvh - var(--bs-header-h) - var(--bs-footer-h));
   }
+
+  html{
+    scroll-snap-type:y mandatory;
+    scroll-padding-top:var(--bs-header-h);
+  }
+
   body{
     overflow-x:hidden;
+    padding-bottom:var(--bs-footer-h);
   }
-  .slide.enhanced-slide{
+
+  header{
+    height:var(--bs-header-h);
+    min-height:var(--bs-header-h);
+    padding:8px 4vw;
+  }
+
+  footer{
+    height:var(--bs-footer-h);
+    min-height:var(--bs-footer-h);
+    padding:8px 3vw;
+    flex-wrap:nowrap;
+  }
+
+  /* Applies to Pages 1–21, appendix directory, Appendices 1–7 and disclaimer. */
+  #deck > .slide.enhanced-slide{
+    box-sizing:border-box;
+    height:var(--bs-page-h);
+    min-height:var(--bs-page-h);
+    max-height:var(--bs-page-h);
+    scroll-margin-top:var(--bs-header-h);
     scroll-snap-align:start;
-    scroll-snap-stop:normal;
+    scroll-snap-stop:always;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior-y:contain;
+  }
+
+  /* Keep the page itself visually clean while still allowing dense pages to scroll internally. */
+  #deck > .slide.enhanced-slide{
+    scrollbar-width:thin;
+    scrollbar-color:#9bb5b1 transparent;
+  }
+  #deck > .slide.enhanced-slide::-webkit-scrollbar{width:7px}
+  #deck > .slide.enhanced-slide::-webkit-scrollbar-track{background:transparent}
+  #deck > .slide.enhanced-slide::-webkit-scrollbar-thumb{
+    background:#9bb5b1;
+    border-radius:8px;
   }
 }
 
-/* Mobile/tablet stays readable and reflows using the existing page-specific rules.
-   Do not force desktop heights, generic flex layouts, card sizes or typography here. */
+/* Tablets and phones must remain readable rather than being shrunk into a fixed desktop frame. */
 @media (max-width:950px){
   html{
     scroll-snap-type:none;
+    scroll-padding-top:0;
   }
+
   body{
     overflow-x:hidden;
   }
-  .slide.enhanced-slide{
+
+  #deck > .slide.enhanced-slide{
     height:auto;
     max-height:none;
+    min-height:calc(100svh - 118px);
     overflow:visible;
+    scroll-margin-top:70px;
   }
 }
