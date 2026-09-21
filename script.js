@@ -3,6 +3,24 @@ const index=document.querySelector('#index');
 const next=document.querySelector('#next');
 const nav=document.querySelector('#presentation-nav');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+const deck=document.querySelector('#deck');
+const viewer=document.querySelector('#viewer');
+const presentationMode=matchMedia('(min-width:951px)');
+const CANVAS_WIDTH=1600;
+const CANVAS_HEIGHT=900;
+
+function fitDeckToViewport(){
+  if(!deck||!viewer)return;
+  if(!presentationMode.matches){
+    deck.style.removeProperty('--deck-scale');
+    return;
+  }
+  const safeMargin=8;
+  const availableWidth=Math.max(1,viewer.clientWidth-safeMargin*2);
+  const availableHeight=Math.max(1,viewer.clientHeight-safeMargin*2);
+  const scale=Math.min(availableWidth/CANVAS_WIDTH,availableHeight/CANVAS_HEIGHT);
+  deck.style.setProperty('--deck-scale',String(scale));
+}
 let current=0;
 
 function countUp(el){
@@ -60,6 +78,7 @@ function showPage(position,{updateHash=true,focus=false}={}){
   window.scrollTo({top:0,behavior:'instant'});
 
   requestAnimationFrame(()=>{
+    fitDeckToViewport();
     window.dispatchEvent(new Event('resize'));
     window.dispatchEvent(new CustomEvent('presentation-active',{detail:slides[target]}));
     if(focus)index.focus({preventScroll:true});
@@ -78,4 +97,10 @@ document.querySelectorAll('[data-slide-target]').forEach(link=>{
 });
 
 window.addEventListener('hashchange',()=>showPage(pageFromHash(),{updateHash:false}));
+window.addEventListener('resize',fitDeckToViewport);
+presentationMode.addEventListener('change',fitDeckToViewport);
+if('ResizeObserver' in window && viewer){
+  new ResizeObserver(fitDeckToViewport).observe(viewer);
+}
+fitDeckToViewport();
 showPage(pageFromHash(),{updateHash:false});
