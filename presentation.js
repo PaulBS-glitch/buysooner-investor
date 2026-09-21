@@ -158,12 +158,20 @@
       reveal(page,q(page,'.worked-bottom-line'),2400);reveal(page,q(page,'.calculator-caveat'),2800);reveal(page,q(page,'.appendix-takeaway'),3000);
     },
     'appendix-7':page=>{
-      reveal(page,q(page,'.cycle-centre'),100);
+      animate(page,q(page,'.slide-head>.eyebrow'),[{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],0,320);
+      animate(page,q(page,'h1'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],90,380);
+      animate(page,q(page,'.intro'),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],240,360);
       const paths=all(page,'.cycle-connector');
-      all(page,'.cycle-stage').forEach((card,i)=>{const t=300+i*350;reveal(page,card,t);light(page,card,t);flow(page,paths[i],t+200);});
-      light(page,q(page,'.capital-recycled'),2450);
-      all(page,'.investor-callout').forEach((card,i)=>reveal(page,card,2750+i*160));
-      reveal(page,q(page,'.appendix-takeaway'),3450);
+      all(page,'.cycle-stage').forEach((card,i)=>{
+        const t=520+i*300;
+        reveal(page,card,t);
+        light(page,card,t);
+        flow(page,paths[i],t+150);
+      });
+      reveal(page,q(page,'.cycle-centre'),2350);
+      light(page,q(page,'.capital-recycled'),2550);
+      all(page,'.investor-callout').forEach((card,i)=>reveal(page,card,2800+i*140));
+      reveal(page,q(page,'.appendix-takeaway'),3420);
     }
   };
 
