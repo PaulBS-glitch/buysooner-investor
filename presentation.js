@@ -158,20 +158,19 @@
       reveal(page,q(page,'.worked-bottom-line'),2400);reveal(page,q(page,'.calculator-caveat'),2800);reveal(page,q(page,'.appendix-takeaway'),3000);
     },
     'appendix-7':page=>{
-      animate(page,q(page,'.slide-head>.eyebrow'),[{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],0,320);
-      animate(page,q(page,'h1'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],90,380);
-      animate(page,q(page,'.intro'),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],240,360);
-      const paths=all(page,'.cycle-connector');
-      all(page,'.cycle-stage').forEach((card,i)=>{
-        const t=520+i*300;
-        reveal(page,card,t);
-        light(page,card,t);
-        flow(page,paths[i],t+150);
+      animate(page,q(page,'.slide-head>.eyebrow'),[{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],0,260);
+      animate(page,q(page,'h1'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],80,340);
+      animate(page,q(page,'.intro'),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],210,320);
+      const stages=all(page,'.lifecycle-stage');
+      const arrows=all(page,'.lifecycle-arrow');
+      stages.forEach((stage,i)=>{
+        const t=480+i*280;
+        animate(page,stage,[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],t,360);
+        if(arrows[i])animate(page,arrows[i],[{opacity:0,transform:'scaleX(.2)'},{opacity:1,transform:'scaleX(1)'}],t+170,220);
       });
-      reveal(page,q(page,'.cycle-centre'),2350);
-      light(page,q(page,'.capital-recycled'),2550);
-      all(page,'.investor-callout').forEach((card,i)=>reveal(page,card,2800+i*140));
-      reveal(page,q(page,'.appendix-takeaway'),3420);
+      animate(page,q(page,'.institutional-mechanics'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],2280,360);
+      all(page,'.mechanic').forEach((card,i)=>reveal(page,card,2380+i*100));
+      reveal(page,q(page,'.appendix7-takeaway'),2860);
     }
   };
 
