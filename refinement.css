@@ -411,3 +411,15 @@ html{scroll-padding-top:0}
     font-family:"Arial Narrow","Aptos Narrow","Roboto Condensed",Arial,Helvetica,sans-serif;
   }
 }
+
+
+/* === Full-window presentation mode ===
+   Browsers require a user gesture for true Fullscreen API mode.
+   This removes the site header and makes the deck fill the browser viewport automatically. */
+header{display:none!important}
+html{scroll-padding-top:0!important}
+.slide,.slide.enhanced-slide{scroll-margin-top:0!important}
+.slide.enhanced-slide{min-height:calc(100dvh - 72px)}
+@media (min-width:951px){
+  #page-1{min-height:calc(100dvh - 72px)}
+}
