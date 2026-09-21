@@ -73,11 +73,7 @@
   const planPaths=diagram(q(p8,'.refinance-pathways'),[{from:planA,to:planEnd},{from:planA,to:planB,kind:'branch'},{from:planB,to:later,kind:'secondary'}]);
   const p5=q(document,'#page-5'),life=all(p5,'.transaction-lifecycle .card');
   const lifePaths=diagram(q(p5,'.transaction-lifecycle'),life.slice(0,2).map((card,i)=>({from:card,to:life[i+1]})));
-  const a4=q(document,'#appendix-4'),controls=all(a4,'.exit-risk-row'),outcomes=all(a4,'.exit-class-row');
-  const controlPaths=diagram(q(a4,'.exit-risk-layout'),[
-    ...controls.slice(0,3).map((card,i)=>({from:card,to:controls[i+1]})),
-    {from:controls[2],to:q(a4,'.exit-risk-panel'),kind:'classification'}
-  ]);
+  const a4=q(document,'#appendix-4'),exitStages=all(a4,'.exit-process-stage'),exitArrows=all(a4,'.exit-process-arrow'),exitClasses=all(a4,'.exit-class-card');
 
   // Additional process geometry is derived from the final responsive card positions.
   const processes=new Map();
@@ -145,10 +141,17 @@
       reveal(page,q(page,'.callout'),2900);
     },
     'appendix-4':page=>{
-      controls.slice(0,3).forEach((card,i)=>{reveal(page,card,300+i*450);light(page,card,300+i*450);if(i<2)flow(page,controlPaths[i],550+i*450);});
-      flow(page,controlPaths[3],1350);reveal(page,q(page,'.exit-risk-panel'),1550);
-      outcomes.forEach((card,i)=>reveal(page,card,1650+i*180));
-      flow(page,controlPaths[2],2400);reveal(page,controls[3],2600);reveal(page,q(page,'.fallback-note'),2850);reveal(page,q(page,'.exit-risk-takeaway'),3150);
+      animate(page,q(page,'.slide-head>.eyebrow'),[{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],0,250);
+      animate(page,q(page,'h1'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],80,330);
+      animate(page,q(page,'.intro'),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],210,310);
+      exitStages.forEach((stage,i)=>{
+        const t=480+i*310;
+        animate(page,stage,[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],t,360);
+        if(exitArrows[i])animate(page,exitArrows[i],[{opacity:0,transform:'scaleX(.2)'},{opacity:1,transform:'scaleX(1)'}],t+180,220);
+      });
+      animate(page,q(page,'.exit-classification-block'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],1760,350);
+      exitClasses.forEach((card,i)=>reveal(page,card,1870+i*110));
+      reveal(page,q(page,'.exit-governance-footer'),2400);
     },
     'appendix-6':page=>{
       reveal(page,q(page,'.worked-section-heading'),180);
