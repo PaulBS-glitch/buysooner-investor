@@ -165,7 +165,14 @@
   };
 
   Object.assign(pageSequences,{
-    'page-1':page=>{reveal(page,q(page,'.slide-head>.eyebrow'),0);reveal(page,q(page,'h1'),150);reveal(page,q(page,'.intro'),400);group(page,'.metrics>article',800,200);},
+    'page-1':page=>{
+      animate(page,q(page,'.slide-head>.eyebrow'),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],0,420);
+      animate(page,q(page,'h1'),[{opacity:0,transform:'translateY(16px)'},{opacity:1,transform:'none'}],160,520);
+      animate(page,q(page,'.intro'),[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],400,480);
+      animate(page,q(page,'.slide-head>.caption'),[{opacity:0},{opacity:1}],620,360);
+      animate(page,q(page,'.hero-panel>.eyebrow'),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],700,380);
+      all(page,'.metrics>article').forEach((node,i)=>animate(page,node,[{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'none'}],850+i*220,480));
+    },
     'page-2':page=>{group(page,'.metrics>article',250,150);group(page,'.grid>.card',1000,250);},
     'page-3':page=>{group(page,'.grid>.card',350,500);finish(page,1500);},
     'page-4':page=>{product.forEach((card,i)=>{reveal(page,card,300+i*600);light(page,card,300+i*600);reveal(page,productArrows[i],650+i*600);});finish(page,2200);reveal(page,q(page,'.slide-body>.caption'),2200);},
