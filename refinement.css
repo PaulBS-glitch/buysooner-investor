@@ -961,3 +961,7 @@ html{scroll-padding-top:0}
     white-space:nowrap;
   }
 }
+
+
+/* The hidden state must outrank each slide's bespoke display declaration. */
+#deck > .slide[hidden]{display:none!important}
