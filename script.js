@@ -52,7 +52,7 @@ function showPage(position,{updateHash=true,focus=false}={}){
   current=target;
   index.value=String(target);
   next.disabled=target===slides.length-1;
-  const navSlot=slides[target].querySelector('.appendix7-nav-slot');
+  const navSlot=slides[target].querySelector('.presentation-nav-slot,.appendix7-nav-slot');
   (navSlot||slides[target]).append(nav);
 
   if(updateHash)history.replaceState(null,'','#'+slides[target].id);
