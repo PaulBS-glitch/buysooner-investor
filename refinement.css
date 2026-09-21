@@ -412,3 +412,108 @@ html{scroll-padding-top:0}
   }
 }
 
+
+
+/* === Page 2 refinement: fit one viewport; wording/numbers unchanged === */
+@media (min-width:951px){
+  #page-2{
+    min-height:calc(100dvh - 132px);
+    padding:20px clamp(34px,4vw,64px) 16px;
+    display:flex;
+    flex-direction:column;
+  }
+  #page-2 .slide-head{
+    max-width:1420px;
+    width:100%;
+    margin:0 auto;
+  }
+  #page-2 .slide-head>.eyebrow{
+    margin-bottom:8px;
+  }
+  #page-2 .slide-head h1{
+    font-size:clamp(31px,2.45vw,40px);
+    line-height:1.08;
+    margin:0 0 10px;
+    max-width:1380px;
+  }
+  #page-2 .intro{
+    font-size:15.5px;
+    line-height:1.4;
+    margin:0 0 14px;
+    max-width:1400px;
+  }
+  #page-2 .slide-body{
+    max-width:1420px;
+    width:100%;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    flex:1 1 auto;
+    min-height:0;
+  }
+  #page-2 .metrics{
+    margin:4px 0 14px;
+    min-height:0;
+    border-radius:5px;
+  }
+  #page-2 .metrics article{
+    min-height:116px;
+    padding:17px 20px 15px;
+    justify-content:center;
+  }
+  #page-2 .metrics .number{
+    font-size:clamp(30px,2.6vw,42px);
+    margin:0 0 8px;
+    line-height:1;
+  }
+  #page-2 .metrics .caption{
+    font-size:12.5px;
+    line-height:1.28;
+  }
+  #page-2 .grid.three{
+    margin:4px 0 0;
+    gap:24px;
+    align-items:stretch;
+  }
+  #page-2 .grid.three .card{
+    min-height:178px;
+    height:auto;
+    padding:20px 22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+  }
+  #page-2 .grid.three h3{
+    font-size:20px;
+    line-height:1.2;
+    margin:0 0 12px;
+  }
+  #page-2 .grid.three p{
+    font-size:15px;
+    line-height:1.42;
+    margin:0;
+  }
+  #page-2 .page-footer{
+    max-width:1420px;
+    width:100%;
+    margin:12px auto 0;
+    padding-top:8px;
+    flex:0 0 auto;
+  }
+}
+@media (min-width:951px) and (max-height:800px){
+  #page-2{
+    padding-top:14px;
+    padding-bottom:10px;
+  }
+  #page-2 .slide-head h1{font-size:31px;margin-bottom:8px}
+  #page-2 .intro{font-size:14.5px;line-height:1.32;margin-bottom:10px}
+  #page-2 .metrics{margin-bottom:10px}
+  #page-2 .metrics article{min-height:98px;padding:13px 18px}
+  #page-2 .metrics .number{font-size:31px}
+  #page-2 .grid.three{gap:20px}
+  #page-2 .grid.three .card{min-height:146px;padding:16px 18px}
+  #page-2 .grid.three h3{font-size:18px;margin-bottom:9px}
+  #page-2 .grid.three p{font-size:14px;line-height:1.34}
+  #page-2 .page-footer{margin-top:8px;padding-top:6px}
+}
