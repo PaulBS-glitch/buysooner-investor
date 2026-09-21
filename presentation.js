@@ -151,11 +151,21 @@
       flow(page,controlPaths[2],2400);reveal(page,controls[3],2600);reveal(page,q(page,'.fallback-note'),2850);reveal(page,q(page,'.exit-risk-takeaway'),3150);
     },
     'appendix-6':page=>{
-      reveal(page,q(page,'.worked-section-heading'),200);
-      all(page,'.worked-panel').forEach((panel,i)=>reveal(page,panel,350+i*250));
-      reveal(page,q(page,'.worked-strap'),900);reveal(page,q(page,'.investment-split'),1100);
-      all(page,'.tradeoff-grid article').forEach((card,i)=>reveal(page,card,1500+i*180));
-      reveal(page,q(page,'.worked-bottom-line'),2400);reveal(page,q(page,'.calculator-caveat'),2800);reveal(page,q(page,'.appendix-takeaway'),3000);
+      reveal(page,q(page,'.worked-section-heading'),180);
+      all(page,'.worked-panel').forEach((panel,i)=>reveal(page,panel,320+i*220));
+      reveal(page,q(page,'.worked-strap'),820);
+      reveal(page,q(page,'.investment-split'),1000);
+      reveal(page,q(page,'.worked-bottom-line'),1450);
+      reveal(page,q(page,'.calculator-caveat'),1850);
+      reveal(page,q(page,'.appendix6-footer'),2050);
+    },
+    'appendix-6a':page=>{
+      animate(page,q(page,'.slide-head>.eyebrow'),[{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],0,260);
+      animate(page,q(page,'h1'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],90,340);
+      animate(page,q(page,'.intro'),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],220,320);
+      all(page,'.tradeoff-grid article').forEach((card,i)=>animate(page,card,[{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'none'}],520+i*260,380));
+      reveal(page,q(page,'.worked-strap-large'),1700);
+      reveal(page,q(page,'.appendix6-footer'),1950);
     },
     'appendix-7':page=>{
       animate(page,q(page,'.slide-head>.eyebrow'),[{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],0,260);
