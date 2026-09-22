@@ -92,6 +92,30 @@ function showPage(position,{updateHash=true,focus=false}={}){
   });
 }
 
+
+const contentsDisclosures=[...document.querySelectorAll('.contents-disclosure')];
+
+function setContentsDisclosure(disclosure,open){
+  const trigger=disclosure?.querySelector('.contents-disclosure-trigger');
+  const panel=disclosure?.querySelector('.contents-disclosure-panel');
+  if(!trigger||!panel)return;
+  trigger.setAttribute('aria-expanded',String(open));
+  panel.hidden=!open;
+  const action=trigger.querySelector('.contents-disclosure-meta b');
+  if(action)action.textContent=open?'Close ↑':'Explore ↓';
+}
+
+contentsDisclosures.forEach(disclosure=>{
+  const trigger=disclosure.querySelector('.contents-disclosure-trigger');
+  const close=disclosure.querySelector('.contents-close');
+  trigger?.addEventListener('click',()=>{
+    const willOpen=trigger.getAttribute('aria-expanded')!=='true';
+    contentsDisclosures.forEach(item=>setContentsDisclosure(item,false));
+    if(willOpen)setContentsDisclosure(disclosure,true);
+  });
+  close?.addEventListener('click',()=>setContentsDisclosure(disclosure,false));
+});
+
 async function enterPresentationFullscreen(){
   const root=document.documentElement;
   if(document.fullscreenElement||!root?.requestFullscreen)return;
