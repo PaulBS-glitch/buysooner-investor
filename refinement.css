@@ -3210,3 +3210,115 @@ html{scroll-padding-top:0}
     gap:10px;
   }
 }
+
+
+/* === Slide 19 four-stage opportunity sequence: David-style structure; wording unchanged === */
+@media (min-width:951px){
+  #page-19 .slide-body{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+
+  #page-19 .opportunity-sequence{
+    flex:1 1 auto;
+    min-height:0;
+    display:grid;
+    grid-template-rows:repeat(4,minmax(0,1fr));
+    margin:0;
+    border-top:1px solid #d7e3df;
+  }
+
+  #page-19 .opportunity-row{
+    min-height:0;
+    display:grid;
+    grid-template-columns:72px 165px minmax(0,1fr);
+    gap:22px;
+    align-items:center;
+    padding:0 4px;
+    border-bottom:1px solid #d7e3df;
+  }
+
+  #page-19 .opportunity-number{
+    font-size:28px;
+    line-height:1;
+    font-weight:800;
+    color:#55dfbc;
+    font-variant-numeric:tabular-nums;
+  }
+
+  #page-19 .opportunity-row h3{
+    margin:0;
+    font-size:24px;
+    line-height:1.2;
+    color:#103740;
+  }
+
+  #page-19 .opportunity-row p{
+    margin:0;
+    font-size:18px;
+    line-height:1.42;
+    color:#50666b;
+  }
+
+  #page-19 .callout{
+    flex:0 0 auto;
+    margin:22px 0 0;
+    padding:18px 22px;
+    text-align:center;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:.01em;
+  }
+}
+
+@media (min-width:951px) and (max-height:800px){
+  #page-19 .opportunity-row{
+    grid-template-columns:62px 150px minmax(0,1fr);
+    gap:18px;
+  }
+
+  #page-19 .opportunity-number{
+    font-size:24px;
+  }
+
+  #page-19 .opportunity-row h3{
+    font-size:21px;
+  }
+
+  #page-19 .opportunity-row p{
+    font-size:16px;
+    line-height:1.36;
+  }
+
+  #page-19 .callout{
+    margin-top:18px;
+    padding:15px 18px;
+    font-size:14.5px;
+  }
+}
+
+@media (max-width:950px){
+  #page-19 .opportunity-sequence{
+    display:grid;
+    grid-template-columns:1fr;
+    border-top:1px solid #d7e3df;
+  }
+
+  #page-19 .opportunity-row{
+    display:grid;
+    grid-template-columns:48px 1fr;
+    gap:8px 14px;
+    padding:18px 0;
+    border-bottom:1px solid #d7e3df;
+  }
+
+  #page-19 .opportunity-row h3{
+    margin:0;
+  }
+
+  #page-19 .opportunity-row p{
+    grid-column:2;
+    margin:0;
+  }
+}
