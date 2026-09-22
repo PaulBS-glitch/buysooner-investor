@@ -4527,3 +4527,217 @@ html{scroll-padding-top:0}
     font-size:13px;
   }
 }
+
+
+/* === Slide 8 final David-style refinement; wording unchanged === */
+@media (min-width:951px){
+  #page-8 .slide-body{
+    display:grid;
+    grid-template-rows:minmax(0,1fr) auto;
+    gap:24px;
+    min-height:0;
+  }
+
+  #page-8 .refinance-pathways-linear{
+    min-height:0;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 58px minmax(0,1fr) 58px minmax(0,1fr);
+    align-items:stretch;
+    margin:0;
+  }
+
+  #page-8 .refinance-column{
+    min-width:0;
+    display:grid;
+    grid-template-rows:108px minmax(0,1fr);
+    gap:26px;
+  }
+
+  #page-8 .refinance-label{
+    padding:22px 24px;
+    background:#fff;
+    border:1px solid #d8e4e0;
+    border-radius:8px;
+    box-shadow:0 3px 12px #102e3505;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+
+  #page-8 .refinance-label h3{
+    margin:0 0 12px;
+    font-size:24px;
+    line-height:1.05;
+    color:#103740;
+  }
+
+  #page-8 .refinance-label p{
+    margin:0;
+    font-size:18px;
+    line-height:1.15;
+    color:#103740;
+    font-weight:500;
+    letter-spacing:.01em;
+  }
+
+  #page-8 .refinance-column .card{
+    height:100%;
+    min-height:0;
+    padding:30px 28px 26px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    background:#fff;
+    border:1px solid #d8e4e0;
+    border-top:0;
+    border-left:6px solid #55dfbc;
+    border-radius:7px;
+    box-shadow:0 4px 14px #102e3506;
+  }
+
+  #page-8 .plan-b-column .card{
+    border-left-color:#477d9b;
+  }
+
+  #page-8 .plan-later-column .card{
+    border-left-color:#159f86;
+  }
+
+  #page-8 .refinance-column .card>p:first-child{
+    margin:0 0 18px;
+    font-size:19px;
+    line-height:1.25;
+    font-weight:700;
+    color:#103740;
+  }
+
+  #page-8 .refinance-column .card>p:nth-child(2){
+    margin:0;
+    font-size:16px;
+    line-height:1.48;
+    color:#50666b;
+  }
+
+  #page-8 .plan-endpoint{
+    margin-top:auto;
+    padding:18px 0 0;
+    background:transparent;
+    color:#103740;
+    border:0;
+    border-top:1px solid #d8e4e0;
+    border-radius:0;
+  }
+
+  #page-8 .plan-endpoint span{
+    display:block;
+    margin:0 0 7px;
+    font-size:11.5px;
+    line-height:1.2;
+    color:#159f86;
+    letter-spacing:.08em;
+    font-weight:800;
+  }
+
+  #page-8 .plan-endpoint strong{
+    display:block;
+    font-size:17px;
+    line-height:1.3;
+    color:#103740;
+  }
+
+  #page-8 .refinance-arrow{
+    align-self:end;
+    justify-self:center;
+    margin-bottom:118px;
+    transform:none;
+    color:#55dfbc;
+    font-size:42px;
+    line-height:1;
+    font-weight:700;
+  }
+
+  #page-8 .callout{
+    display:grid;
+    grid-template-columns:210px minmax(0,1fr);
+    gap:22px;
+    align-items:start;
+    margin:0;
+    padding:18px 8px 0;
+    background:transparent;
+    border:0;
+    border-top:1px solid #d8e4e0;
+    border-radius:0;
+    color:#103740;
+    font-size:14.5px;
+    line-height:1.4;
+    font-weight:600;
+  }
+
+  #page-8 .callout::before{
+    content:"Why the distinction matters";
+    color:#159f86;
+    font-weight:800;
+  }
+}
+
+@media (min-width:951px) and (max-height:800px){
+  #page-8 .slide-body{
+    gap:18px;
+  }
+
+  #page-8 .refinance-pathways-linear{
+    grid-template-columns:minmax(0,1fr) 50px minmax(0,1fr) 50px minmax(0,1fr);
+  }
+
+  #page-8 .refinance-column{
+    grid-template-rows:92px minmax(0,1fr);
+    gap:20px;
+  }
+
+  #page-8 .refinance-label{
+    padding:18px 20px;
+  }
+
+  #page-8 .refinance-label h3{
+    font-size:21px;
+    margin-bottom:8px;
+  }
+
+  #page-8 .refinance-label p{
+    font-size:16px;
+  }
+
+  #page-8 .refinance-column .card{
+    padding:24px 24px 22px;
+  }
+
+  #page-8 .refinance-column .card>p:first-child{
+    margin-bottom:14px;
+    font-size:17px;
+  }
+
+  #page-8 .refinance-column .card>p:nth-child(2){
+    font-size:14.5px;
+    line-height:1.42;
+  }
+
+  #page-8 .plan-endpoint{
+    padding-top:14px;
+  }
+
+  #page-8 .plan-endpoint strong{
+    font-size:15.5px;
+  }
+
+  #page-8 .refinance-arrow{
+    margin-bottom:96px;
+    font-size:36px;
+  }
+
+  #page-8 .callout{
+    grid-template-columns:185px minmax(0,1fr);
+    gap:18px;
+    padding-top:14px;
+    font-size:13px;
+  }
+}
