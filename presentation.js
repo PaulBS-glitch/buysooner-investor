@@ -7,10 +7,11 @@
   const state=new WeakMap();
   const diagrams=[];
   let active=null;
-  const q=(root,s)=>root.querySelector(s), all=(root,s)=>[...root.querySelectorAll(s)];
+  const q=(root,s)=>root?.querySelector(s)||null, all=(root,s)=>root?[...root.querySelectorAll(s)]:[];
   function stop(page){(state.get(page)||[]).forEach(a=>a.cancel());state.set(page,[]);}
   function animate(page,node,frames,delay=0,duration=480){
-    if(!node||media.matches||!node.animate)return;
+    if(!page||!node||media.matches||!node.animate)return;
+    if(!state.has(page))state.set(page,[]);
     const isMain=/^page-(?:[1-9]|1\\d|2[01])$/.test(page?.id||'');
     const pace=isMain&&compactMotion.matches?.72:1;
     const a=node.animate(frames,{duration:Math.round(duration*pace),delay:Math.round(delay*pace),easing:'cubic-bezier(.2,.65,.25,1)',fill:'backwards'});
@@ -21,6 +22,11 @@
   const light=(page,node,delay)=>animate(page,node,[{boxShadow:'inset 0 0 0 2px transparent'},{boxShadow:'inset 0 0 0 2px #35bf9e',offset:.35},{boxShadow:'inset 0 0 0 2px transparent'}],delay,650);
   const flow=(page,node,delay)=>animate(page,node,[{strokeDasharray:'1',strokeDashoffset:1,opacity:.3},{strokeDasharray:'1',strokeDashoffset:0,opacity:1}],delay,400);
   function diagram(root,specs){
+    // Rebuilt main pages use native layout instead of obsolete SVG geometry.
+    if(!root||root.closest('.main-slide'))return [];
+    specs=specs.filter(spec=>spec.from&&spec.to);
+    if(!specs.length)return [];
+    all(root,':scope > svg.diagram-links').forEach(svg=>svg.remove());
     root.classList.add('diagram-surface');
     const svg=document.createElementNS(NS,'svg');svg.classList.add('diagram-links');svg.setAttribute('aria-hidden','true');
     const markerId='flow-arrow-'+diagrams.length;
@@ -28,6 +34,7 @@
     const paths=specs.map(spec=>{const p=document.createElementNS(NS,'path');p.setAttribute('class','diagram-link '+(spec.kind||''));p.setAttribute('marker-end',`url(#${markerId})`);p.setAttribute('pathLength','1');svg.append(p);return p;});
     root.prepend(svg);
     function layout(){
+      if(!root.offsetWidth||!root.offsetHeight)return;
       const r=root.getBoundingClientRect(),scale=r.width/root.offsetWidth||1;
       const width=root.clientWidth,height=root.clientHeight;svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
       const box=node=>{const b=node.getBoundingClientRect();return {x:(b.left-r.left)/scale,y:(b.top-r.top)/scale,w:b.width/scale,h:b.height/scale};};
@@ -63,29 +70,7 @@
     }
     diagrams.push({layout,root});layout();return paths;
   }
-  const p11=q(document,'#page-11'),water=all(p11,'.waterfall .card'),amounts=all(p11,'.exit-item');
-  const waterfallPaths=diagram(q(p11,'.grid.two'),[
-    ...water.slice(0,3).map((card,i)=>({from:card,to:amounts[i],kind:'amount'})),
-    ...water.slice(0,3).map((card,i)=>({from:card,to:water[i+1]})),
-    {from:water[3],to:water[0],kind:'recycle'}
-  ]);
-  const p8=q(document,'#page-8'),planA=q(p8,'.plan-a'),planEnd=q(p8,'.plan-endpoint'),planB=q(p8,'.plan-b'),later=q(p8,'.plan-later');
-  const planPaths=diagram(q(p8,'.refinance-pathways'),[{from:planA,to:planEnd},{from:planA,to:planB,kind:'branch'},{from:planB,to:later,kind:'secondary'}]);
-  const p5=q(document,'#page-5'),life=all(p5,'.transaction-lifecycle .card');
-  const lifePaths=diagram(q(p5,'.transaction-lifecycle'),life.slice(0,2).map((card,i)=>({from:card,to:life[i+1]})));
   const a4=q(document,'#appendix-4'),exitStages=all(a4,'.exit-process-stage'),exitArrows=all(a4,'.exit-process-arrow'),exitClasses=all(a4,'.exit-class-card');
-
-  // Additional process geometry is derived from the final responsive card positions.
-  const processes=new Map();
-  [9,10,14,15].forEach(n=>{
-    const page=q(document,'#page-'+n),root=q(page,n===15?'.grid.five':'.slide-body>.grid');
-    const cards=all(root,':scope>.card');
-    processes.set(page.id,{cards,paths:diagram(root,cards.slice(0,-1).map((card,i)=>({from:card,to:cards[i+1]})))});
-  });
-  const p12=q(document,'#page-12'),housing=all(p12,'.grid>.card');
-  const housingPaths=diagram(q(p12,'.grid'),[{from:housing[0],to:housing[2],kind:'join'},{from:housing[1],to:housing[2]}]);
-  const p19=q(document,'#page-19'),cycleCards=all(p19,'.grid>.card');
-  const opportunityPaths=diagram(q(p19,'.grid'),cycleCards.map((card,i)=>({from:card,to:cycleCards[(i+1)%4],kind:i===3?'opportunity-return':''})));
   const a3=q(document,'#appendix-3'),gates=all(a3,'.risk-row');
   const gatePaths=diagram(q(a3,'.risk-layout'),[
     ...gates.slice(0,3).map((card,i)=>({from:card,to:gates[i+1]})),
@@ -93,53 +78,21 @@
   ]);
   const p4=q(document,'#page-4'),product=all(p4,'.grid>.card'),productArrows=all(p4,'.flow-arrow');
   function layoutProduct(){
-    const root=q(p4,'.slide-body'),r=root.getBoundingClientRect(),scale=r.width/root.offsetWidth||1;
+    const root=q(p4,'.slide-body');if(!root||!root.offsetWidth)return;
+    const r=root.getBoundingClientRect(),scale=r.width/root.offsetWidth||1;
     productArrows.forEach((arrow,i)=>{
       const a=product[i].getBoundingClientRect(),b=product[i+1].getBoundingClientRect();
       const vertical=b.top>=a.bottom;
       const x=vertical?(a.left+a.width/2):((a.right+b.left)/2);
       const y=vertical?((a.bottom+b.top)/2):(a.top+a.height/2);
-      arrow.style.left=((x-r.left)/scale-12)+'px';arrow.style.top=((y-r.top)/scale-12)+'px';
+      arrow.style.left=((x-r.left)/scale-arrow.offsetWidth/2)+'px';arrow.style.top=((y-r.top)/scale-arrow.offsetHeight/2)+'px';
       arrow.style.transform=vertical?'rotate(90deg)':'none';
     });
   }
   diagrams.push({root:q(p4,'.slide-body'),layout:layoutProduct});
   function group(page,selector,start=300,stagger=200){all(page,selector).forEach((node,i)=>reveal(page,node,start+i*stagger));}
   function finish(page,time){reveal(page,q(page,'.callout'),time);}
-  function process(page,start=350){
-    const item=processes.get(page.id);
-    item.cards.forEach((card,i)=>{const t=start+i*500;reveal(page,card,t);light(page,card,t);if(item.paths[i])flow(page,item.paths[i],t+250);});
-    return start+item.cards.length*500;
-  }
   const pageSequences={
-    'page-11':page=>{
-      water.forEach((card,i)=>{
-        const t=300+i*600;reveal(page,card,t);light(page,card,t);
-        if(i<3){flow(page,waterfallPaths[i],t+150);reveal(page,amounts[i],t+150);light(page,amounts[i],t+200);animate(page,q(amounts[i],'.amount-track i'),[{transform:'scaleX(0)'},{transform:'scaleX(1)'}],t+150,550);flow(page,waterfallPaths[i+3],t+350);}
-      });
-      flow(page,waterfallPaths[6],2400);reveal(page,q(page,'.callout'),2900);
-    },
-    'page-8':page=>{
-      reveal(page,planA,300);light(page,planA,300);flow(page,planPaths[0],600);reveal(page,planEnd,850);
-      flow(page,planPaths[1],1250);reveal(page,planB,1500);light(page,planB,1650);
-      flow(page,planPaths[2],1950);reveal(page,later,2200);light(page,later,2350);reveal(page,q(page,'.callout'),2850);
-    },
-    'page-7':page=>{
-      all(page,'tr').slice(1).forEach((row,i)=>{const t=300+i*250;reveal(page,row,t);light(page,row.lastElementChild,t+150);});reveal(page,q(page,'.callout'),1950);
-    },
-    'page-18':page=>{
-      reveal(page,q(page,'.slide-body>.eyebrow'),150);
-      const layers=all(page,'.stack-diagram i'),labels=all(page,'.architecture-labels .card');
-      layers.forEach((layer,i)=>{const t=400+i*450;animate(page,layer,[{transform:'scaleY(0)'},{transform:'scaleY(1)'}],t,500);reveal(page,labels[i],t+150);});
-      light(page,layers[2],1950);light(page,labels[2],1950);reveal(page,q(page,'.callout'),2450);
-    },
-    'page-5':page=>{
-      reveal(page,q(page,'.purchase'),150);
-      all(page,'.stack-diagram i').forEach((layer,i)=>animate(page,layer,[{transform:'scaleX(0)'},{transform:'scaleX(1)'}],350+i*250,500));
-      all(page,'.funding-cards .card').forEach((card,i)=>reveal(page,card,1000+i*150));
-      life.forEach((card,i)=>{reveal(page,card,1600+i*400);light(page,card,1600+i*400);if(i<2)flow(page,lifePaths[i],1800+i*400);});
-      reveal(page,q(page,'.callout'),2900);
-    },
     'appendix-4':page=>{
       animate(page,q(page,'.slide-head>.eyebrow'),[{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],0,250);
       animate(page,q(page,'h1'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],80,330);
@@ -188,65 +141,56 @@
   };
 
   Object.assign(pageSequences,{
-    'page-1':page=>{
-      animate(page,q(page,'.slide-head>.eyebrow'),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],0,420);
-      animate(page,q(page,'h1'),[{opacity:0,transform:'translateY(16px)'},{opacity:1,transform:'none'}],160,520);
-      animate(page,q(page,'.intro'),[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],400,480);
-      animate(page,q(page,'.slide-head>.caption'),[{opacity:0},{opacity:1}],620,360);
-      animate(page,q(page,'.hero-panel>.eyebrow'),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],700,380);
-      all(page,'.metrics>article').forEach((node,i)=>animate(page,node,[{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'none'}],850+i*220,480));
-    },
-    'page-2':page=>{
-      animate(page,q(page,'.slide-head>.eyebrow'),[{opacity:0,transform:'translateY(7px)'},{opacity:1,transform:'none'}],0,380);
-      animate(page,q(page,'h1'),[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],120,460);
-      animate(page,q(page,'.intro'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],340,430);
-      all(page,'.metrics>article').forEach((node,i)=>animate(page,node,[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],620+i*160,420));
-      all(page,'.grid>.card').forEach((node,i)=>animate(page,node,[{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'none'}],1350+i*220,460));
-    },
-    'page-3':page=>{
-      animate(page,q(page,'.slide-head>.eyebrow'),[{opacity:0,transform:'translateY(7px)'},{opacity:1,transform:'none'}],0,360);
-      animate(page,q(page,'h1'),[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],120,450);
-      animate(page,q(page,'.intro'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],330,420);
-      animate(page,q(page,'.page3-traditional'),[{opacity:0,transform:'translateX(-18px)'},{opacity:1,transform:'none'}],650,500);
-      animate(page,q(page,'.page3-buysooner'),[{opacity:0,transform:'translateX(18px)'},{opacity:1,transform:'none'}],1050,500);
-      animate(page,q(page,'.page3-buysooner .callout'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],1500,420);
-    },
-    'page-4':page=>{
-      animate(page,q(page,'.slide-head>.eyebrow'),[{opacity:0,transform:'translateY(7px)'},{opacity:1,transform:'none'}],0,360);
-      animate(page,q(page,'h1'),[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],120,450);
-      animate(page,q(page,'.intro'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],330,420);
-      product.forEach((card,i)=>{
-        const t=620+i*520;
-        animate(page,card,[{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'none'}],t,470);
-        light(page,card,t+80);
-        if(productArrows[i])animate(page,productArrows[i],[{opacity:0,transform:'scale(.65)'},{opacity:1,transform:'scale(1)'}],t+340,300);
-      });
-      animate(page,q(page,'.page4-economics'),[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],2200,430);
-    },
-    'page-6':page=>{group(page,'.metrics>article',200,150);all(page,'.column').forEach((column,i)=>{const t=950+i*240;reveal(page,column,t);animate(page,q(column,'i'),[{transform:'scaleY(0)'},{transform:'scaleY(1)'}],t,500);});reveal(page,q(page,'.grid.two>.card'),2400);},
-    'page-9':page=>finish(page,process(page)+200),
-    'page-10':page=>{const end=process(page);reveal(page,q(page,'.slide-body>h3'),end);finish(page,end+250);},
-    'page-12':page=>{reveal(page,housing[0],300);reveal(page,housing[1],650);flow(page,housingPaths[0],1050);flow(page,housingPaths[1],1150);reveal(page,housing[2],1400);reveal(page,q(page,'.slide-body>h3'),2050);finish(page,2200);},
-    'page-13':page=>{group(page,'.grid>.card',300,450);finish(page,2000);},
-    'page-14':page=>{group(page,'.metrics>article',200,150);reveal(page,q(page,'.slide-body>.eyebrow'),900);const end=process(page,1100);reveal(page,q(page,'.slide-body>p:not(.eyebrow):not(.footnote)'),end+150);},
-    'page-15':page=>{const end=process(page,300);group(page,'.grid.two>.card',end,200);},
-    'page-16':page=>{group(page,'.grid>.card',350,350);finish(page,1750);},
-    'page-17':page=>{const rows=[];all(page,'.person').forEach(card=>{let row=rows.find(r=>Math.abs(r.top-card.offsetTop)<3);if(!row){row={top:card.offsetTop,nodes:[]};rows.push(row);}row.nodes.push(card);});rows.forEach((row,i)=>row.nodes.forEach(card=>reveal(page,card,300+i*220)));},
-    'page-19':page=>{cycleCards.forEach((card,i)=>{const t=300+i*600;reveal(page,card,t);light(page,card,t);flow(page,opportunityPaths[i],t+300);});finish(page,3000);},
-    'page-20':page=>{group(page,'.card:first-child .check',300,160);group(page,'.card:last-child .check',1500,160);finish(page,2900);},
     'page-21':page=>{reveal(page,q(page,'.intro'),350);group(page,'.metrics>article',800,200);},
     'appendices':page=>group(page,'.appendix-link',250,180),
     'appendix-1':page=>{reveal(page,q(page,'.waiting-inputs'),250);reveal(page,q(page,'.waiting-maths'),650);reveal(page,q(page,'.waiting-costs'),1100);reveal(page,q(page,'.waiting-choice'),1550);reveal(page,q(page,'.appendix-takeaway'),2050);},
     'appendix-2':page=>{group(page,'.eligibility-row',250,250);reveal(page,q(page,'.eligibility-panel'),1400);group(page,'.eligibility-summary',1600,150);reveal(page,q(page,'.exclusion-box'),2400);reveal(page,q(page,'.appendix-takeaway'),2800);},
     'appendix-3':page=>{gates.forEach((gate,i)=>{const t=250+i*450;reveal(page,gate,t);light(page,gate,t);flow(page,gatePaths[i],t+200);});reveal(page,q(page,'.risk-panel'),2100);group(page,'.risk-control',2250,150);reveal(page,q(page,'.risk-exit'),2800);reveal(page,q(page,'.risk-takeaway'),3200);},
-    'appendix-5':page=>{group(page,'.portfolio-control-row',250,200);reveal(page,q(page,'.portfolio-action-panel'),1100);group(page,'.portfolio-action-table>div',1250,250);reveal(page,q(page,'.portfolio-discipline'),2650);reveal(page,q(page,'.appendix-takeaway'),3100);},
+    'appendix-5':page=>{group(page,'.portfolio-matrix-row',250,200);reveal(page,q(page,'.portfolio-governance'),1150);reveal(page,q(page,'.portfolio-footer'),1450);},
     'page-22':page=>reveal(page,q(page,'.legal'),300)
+  });
+
+  // Current main-deck structures; layout-independent animations cancel on
+  // navigation, calculator input and reduced-motion preference changes.
+  const mainGroups={
+    1:['.slide-head>.eyebrow','.slide-head h1','.intro','.hero-panel>.eyebrow','.metrics>article'],
+    2:['.metrics>article','.grid.three>.card'],
+    3:['.page3-traditional','.page3-buysooner'],
+    4:['.page4-stage','.flow-arrow','.page4-economics'],
+    5:['.purchase','.stack-diagram','.funding-cards>.card','.transaction-lifecycle>.card','.callout'],
+    6:['.metrics>article','.grid.two'],
+    7:['tr','.callout'],
+    8:['.refinance-column','.refinance-arrow','.callout'],
+    9:['.grid.three>.card','.callout'],
+    10:['.capital-economics-driver','.capital-economics-exit'],
+    11:['.economics-exit-summary','.economics-step-row','.callout'],
+    12:['.grid.three>.card','.thesis-conclusion'],
+    13:['.grid.three>.card','.callout'],
+    14:['.market-metrics>article','.market-wedge-panel','.slide-body>p'],
+    15:['.grid.five>.card','.grid.two>.card'],
+    16:['.grid.three>.card','.callout'],
+    17:['.person'],
+    18:['.slide-body>.eyebrow','.architecture-stack-linear','.slide-body>p:not(.eyebrow)'],
+    19:['.opportunity-row','.callout'],
+    20:['.grid.two>.card','.callout']
+  };
+  Object.entries(mainGroups).forEach(([n,selectors])=>{
+    pageSequences['page-'+n]=page=>{
+      const seen=new Set();let t=120;
+      selectors.forEach(selector=>all(page,selector).forEach(node=>{
+        if(seen.has(node))return;seen.add(node);
+        animate(page,node,[{opacity:0},{opacity:1}],t,420);
+        t+=100;
+      }));
+      if(n==='6')all(page,'.column i').forEach((bar,i)=>animate(page,bar,[{transform:'scaleY(0)'},{transform:'scaleY(1)'}],430+i*100,550));
+      if(n==='5')all(page,'.stack-diagram i').forEach((bar,i)=>animate(page,bar,[{transform:'scaleX(0)'},{transform:'scaleX(1)'}],240+i*100,500));
+    };
   });
   function play(page){
     if(!page?.classList.contains('enhanced-slide'))return false;
     stop(page);diagrams.filter(d=>page.contains(d.root)).forEach(d=>d.layout());
     if(media.matches)return true;
-    reveal(page,q(page,'.slide-head'),0);pageSequences[page.id]?.(page);return true;
+    if(page.id!=='page-1')reveal(page,q(page,'.slide-head'),0);pageSequences[page.id]?.(page);return true;
   }
   function activate(page){if(active===page)return;if(active)stop(active);active=page;play(page);}
   window.replayPresentation=play;
@@ -257,9 +201,9 @@
   window.addEventListener('presentation-active',e=>activate(e.detail));
   media.addEventListener('change',()=>sections.forEach(stop));
   let layoutFrame;
-  const layout=()=>{cancelAnimationFrame(layoutFrame);layoutFrame=requestAnimationFrame(()=>diagrams.forEach(d=>d.layout()));};
+  const layout=()=>{cancelAnimationFrame(layoutFrame);layoutFrame=requestAnimationFrame(()=>diagrams.filter(d=>d.root&&!d.root.closest('.slide')?.hidden).forEach(d=>d.layout()));};
   window.addEventListener('resize',layout);
-  if('ResizeObserver' in window){const ro=new ResizeObserver(layout);diagrams.forEach(d=>ro.observe(d.root));}
+  if('ResizeObserver' in window){const ro=new ResizeObserver(layout);diagrams.filter(d=>d.root).forEach(d=>ro.observe(d.root));}
   document.fonts.ready.then(layout);
   activate(document.getElementById(location.hash.slice(1)||'page-1'));
 })();
