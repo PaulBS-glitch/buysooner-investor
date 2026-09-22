@@ -47,7 +47,7 @@ if(waitingCalculator){
     document.querySelector('#wait-choice-title').textContent=`Wait ${lowerYears} years`;
     document.querySelector('#wait-rent-copy').textContent=`Your rent is ${currency.format(weeklyRent)} per week. ${writtenYears} years of renting costs ${currency.format(totalRent)}.`;
     document.querySelector('#waiting-scenario').textContent=`Illustrative ${currency.format(property)} property scenario based on ${inputs.growth.value}% annual market growth, weekly rent of ${currency.format(weeklyRent)} and a ${years}-year waiting period.`;
-    document.querySelector('#waiting-takeaway').innerHTML=`<strong>Investor takeaway:</strong> a ${lowerYears}-year wait can increase both the target purchase price and the customer’s rent outlay, widening the capital gap BuySooner is designed to bridge.`;
+    document.querySelector('#waiting-takeaway').innerHTML=`<strong>Investor takeaway:</strong> Waiting ${lowerYears} years can increase both the target purchase price and rent outlay, meaning the customer may need more capital to buy the same home later — widening the gap BuySooner is designed to bridge.`;
   }
 
   let scheduled=false;
