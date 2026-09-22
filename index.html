@@ -536,54 +536,55 @@
 <p class="intro">Plan A is one refinance that repays both the external Boost financier and BuySooner. The example below shows how BuySooner realises cash.</p>
 </div>
 <div class="slide-body">
-<div class="grid two diagram-surface"><svg class="diagram-links" aria-hidden="true" viewBox="0 0 996 528"><defs><marker id="flow-arrow-0" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#159f86"></path></marker></defs><path class="diagram-link amount" marker-end="url(#flow-arrow-0)" pathLength="1" d="M498.2379257187385 110.00669066047196 C529.7416914906448 110.00669066047196 529.7416914906448 110.00669066047196 561.2454572625512 110.00669066047196"></path><path class="diagram-link amount" marker-end="url(#flow-arrow-0)" pathLength="1" d="M498.2379257187385 228.02246302650707 C529.7416914906448 228.02246302650707 529.7416914906448 228.02246302650707 561.2454572625512 228.02246302650707"></path><path class="diagram-link amount" marker-end="url(#flow-arrow-0)" pathLength="1" d="M498.2379257187385 346.0377470339016 C529.7416914906448 346.0377470339016 529.7416914906448 346.0377470339016 561.2454572625512 346.0377470339016"></path><path class="diagram-link " marker-end="url(#flow-arrow-0)" pathLength="1" d="M260.11875113309867 162.01461545618324 C260.11875113309867 166.51457684348952 260.11875113309867 166.51457684348952 260.11875113309867 171.0145382307958"></path><path class="diagram-link " marker-end="url(#flow-arrow-0)" pathLength="1" d="M260.11875113309867 280.03038782221836 C260.11875113309867 284.53010503020437 260.11875113309867 284.53010503020437 260.11875113309867 289.0298222381903"></path><path class="diagram-link " marker-end="url(#flow-arrow-0)" pathLength="1" d="M260.11875113309867 398.04567182961284 C260.11875113309867 402.5456332169191 260.11875113309867 402.5456332169191 260.11875113309867 407.0455946042254"></path><path class="diagram-link recycle" marker-end="url(#flow-arrow-0)" pathLength="1" d="M23.99957654745886 464.0535193999367 H6 V110.00669066047196 H18.99957654745886"></path></svg><svg class="diagram-links" aria-hidden="true" viewBox="0 0 1472 422"><defs><marker id="flow-arrow-0" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#159f86"></path></marker></defs><path class="diagram-link amount" marker-end="url(#flow-arrow-0)" pathLength="1" d="M742.0407252175634 93.96740718774068 C773.5362209069308 93.96740718774068 773.5362209069308 93.96740718774068 805.0317165962982 93.96740718774068"></path><path class="diagram-link amount" marker-end="url(#flow-arrow-0)" pathLength="1" d="M742.0407252175634 189.9558025921762 C773.5362209069308 189.9558025921762 773.5362209069308 189.9558025921762 805.0317165962982 189.9558025921762"></path><path class="diagram-link amount" marker-end="url(#flow-arrow-0)" pathLength="1" d="M742.0407252175634 285.9437097172649 C773.5362209069308 285.9437097172649 773.5362209069308 285.9437097172649 805.0317165962982 285.9437097172649"></path><path class="diagram-link " marker-end="url(#flow-arrow-0)" pathLength="1" d="M382.01886625814734 135.96725128332966 C382.01886625814734 139.46160488995844 382.01886625814734 139.46160488995844 382.01886625814734 142.95595849658724"></path><path class="diagram-link " marker-end="url(#flow-arrow-0)" pathLength="1" d="M382.01886625814734 231.95564668776518 C382.01886625814734 235.44975615472055 382.01886625814734 235.44975615472055 382.01886625814734 238.94386562167588"></path><path class="diagram-link " marker-end="url(#flow-arrow-0)" pathLength="1" d="M382.01886625814734 327.94355381285385 C382.01886625814734 331.4376632798092 382.01886625814734 331.4376632798092 382.01886625814734 334.9317727467646"></path><path class="diagram-link recycle" marker-end="url(#flow-arrow-0)" pathLength="1" d="M23.997007298731344 381.93161684235355 H6 V93.96740718774068 H18.997007298731344"></path></svg>
-<div class="waterfall">
-<p class="eyebrow">ILLUSTRATIVE TRANSACTION 1</p>
-<article class="card reveal">
-<p class="">CUSTOMER PAYS AT EXIT Agreed exit amount is funded from refinance or sale proceeds.</p>
-</article>
-<article class="card reveal">
-<b class="step">2</b>
-<p class="">FINANCIER IS REPAID Boost capital plus contracted accrued financier return is discharged.</p>
-</article>
-<article class="card reveal">
-<b class="step">3</b>
-<p class="">BUYSOONER KEEPS THE BALANCE The residual exit proceeds are BuySooner cash revenue / margin.</p>
-</article>
-<article class="card reveal">
-<b class="step">4</b>
-<p class="">CAPITAL IS RECYCLED Returned external capital can support new eligible Boosts.</p>
-</article>
+<div class="economics-waterfall-layout">
+<aside class="exit economics-exit-summary">
+<p class="eyebrow">ILLUSTRATIVE TRANSACTION</p>
+<p class="eyebrow economics-example-label">EXAMPLE EXIT</p>
+<div class="economics-exit-row">
+<span>Customer exit amount</span>
+<strong>$200,000</strong>
 </div>
-<aside class="exit">
-<p class="eyebrow">EXAMPLE EXIT</p>
-<div class="exit-item">
-<p class="caption">Customer exit amount</p>
-<p class="number">$200,000</p>
-<div class="amount-track">
-<i style="--amount:100%">
-</i>
+<div class="economics-exit-row">
+<span>Financier repayment*</span>
+<strong>($159,400)</strong>
 </div>
+<div class="economics-exit-row economics-margin-row">
+<span>BuySooner margin</span>
+<strong>$40,600</strong>
 </div>
-<div class="exit-item">
-<p class="caption">Financier repayment*</p>
-<p class="number">($159,400)</p>
-<div class="amount-track">
-<i style="--amount:79.7%">
-</i>
-</div>
-</div>
-<div class="exit-item">
-<p class="caption">BuySooner margin</p>
-<p class="number">$40,600</p>
-<div class="amount-track">
-<i style="--amount:20.3%">
-</i>
-</div>
-</div>
-<p class="">Financier capital + contracted return is paid first. BuySooner retains the residual economics.</p>
+<p class="economics-exit-note">Financier capital + contracted return is paid first. BuySooner retains the residual economics.</p>
 <p class="footnote">*Illustrative Year 3 exit using $100k Boost and 9% p.a. financier return, compounded annually.</p>
 </aside>
+<div class="economics-waterfall-steps">
+<article class="economics-step-row reveal">
+<b class="step">1</b>
+<div class="economics-step-copy">
+<h3>CUSTOMER PAYS AT EXIT</h3>
+<p>Agreed exit amount is funded from refinance or sale proceeds.</p>
+</div>
+</article>
+<article class="economics-step-row reveal">
+<b class="step">2</b>
+<div class="economics-step-copy">
+<h3>FINANCIER IS REPAID</h3>
+<p>Boost capital plus contracted accrued financier return is discharged.</p>
+</div>
+</article>
+<article class="economics-step-row reveal">
+<b class="step">3</b>
+<div class="economics-step-copy">
+<h3>BUYSOONER KEEPS THE BALANCE</h3>
+<p>The residual exit proceeds are BuySooner cash revenue / margin.</p>
+</div>
+</article>
+<article class="economics-step-row reveal">
+<b class="step">4</b>
+<div class="economics-step-copy">
+<h3>CAPITAL IS RECYCLED</h3>
+<p>Returned external capital can support new eligible Boosts.</p>
+</div>
+</article>
+</div>
 </div>
 <p class="callout">REALISATION: customer exit cash → financier repaid → BuySooner margin realised</p>
 </div>
