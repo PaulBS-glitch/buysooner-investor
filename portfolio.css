@@ -1,1 +1,202 @@
-.portfolio-controls-layout{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:start}.portfolio-control-list{border-top:1px solid #cbdcd7}.portfolio-control-row{display:grid;grid-template-columns:54px 1fr;gap:14px;padding:19px 0;border-bottom:1px solid #d6e4e0}.portfolio-control-row>span{font-size:14px;font-weight:800;letter-spacing:.12em;color:#087a68}.portfolio-control-row h3{margin:0 0 6px}.portfolio-control-row p{color:#50666b;margin:0}.portfolio-action-panel{background:#fff;border-left:4px solid #20b995;padding:30px}.portfolio-action-panel>.eyebrow,.portfolio-discipline .eyebrow{margin-bottom:10px}.portfolio-action-panel>h2{font-size:clamp(27px,2.5vw,38px);line-height:1.12;letter-spacing:-.03em;margin:0 0 14px}.portfolio-action-panel>p{color:#50666b;margin:0}.portfolio-action-table{border-top:1px solid #d6e4e0;margin-top:22px}.portfolio-action-table>div{display:grid;grid-template-columns:.44fr .56fr;gap:16px;padding:12px 0;border-bottom:1px solid #d6e4e0}.portfolio-action-table h3{font-size:16px;line-height:1.25;margin:0}.portfolio-action-table p{font-size:14px;line-height:1.4;color:#50666b;margin:0}.portfolio-discipline{margin-top:24px;padding-top:18px;border-top:3px solid #20b995}.portfolio-discipline h3{margin-bottom:7px}.portfolio-discipline p:last-child{font-size:15px;line-height:1.45;color:#50666b;margin:0}.portfolio-controls-detail .portfolio-control-row:nth-child(1){--delay:.14s}.portfolio-controls-detail .portfolio-control-row:nth-child(2){--delay:.24s}.portfolio-controls-detail .portfolio-control-row:nth-child(3){--delay:.34s}.portfolio-controls-detail .portfolio-control-row:nth-child(4){--delay:.44s}.portfolio-controls-detail .portfolio-action-panel{--delay:.26s}.portfolio-controls-detail .appendix-takeaway{--delay:.56s}@media(max-width:950px){.portfolio-controls-layout{grid-template-columns:1fr}.portfolio-action-panel{border-left:0;border-top:4px solid #20b995}.portfolio-action-table>div{grid-template-columns:1fr}}@media(max-width:620px){.portfolio-control-row{grid-template-columns:42px 1fr}.portfolio-action-panel{padding:22px}}
+/* Appendix 5: current portfolio matrix. All rules are scoped to this page. */
+#deck > #appendix-5 {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 56px 16px;
+  border-bottom: 0;
+  color: #103740;
+  --portfolio-columns: 23% 27% 24% 26%;
+}
+#appendix-5 .slide-head { flex: 0 0 auto; }
+#appendix-5 .slide-head > .eyebrow {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.3;
+}
+#appendix-5 .slide-head h1 {
+  max-width: none;
+  margin: 0 0 12px;
+  font-size: 36px;
+  line-height: 1.12;
+  letter-spacing: -.025em;
+  text-wrap: normal;
+}
+#appendix-5 .slide-head .intro {
+  max-width: none;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.35;
+  color: #50666b;
+}
+#appendix-5 .slide-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  margin: 20px 0 0;
+  gap: 16px;
+}
+#appendix-5 .portfolio-matrix {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+#appendix-5 .portfolio-matrix-heading { flex: 0 0 auto; margin: 0 0 12px; }
+#appendix-5 .portfolio-matrix-heading .eyebrow {
+  margin: 0 0 6px;
+  font-size: 13px;
+  line-height: 1.2;
+}
+#appendix-5 .portfolio-matrix-heading h2 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #103740;
+}
+#appendix-5 .portfolio-matrix-table {
+  display: grid;
+  grid-template-rows: 46px repeat(4, auto);
+  flex: 1 1 auto;
+  min-height: 0;
+  border: 1px solid #cdded9;
+  border-radius: 6px;
+  background: #fff;
+  overflow: hidden;
+}
+#appendix-5 .portfolio-matrix-header,
+#appendix-5 .portfolio-matrix-row {
+  display: grid;
+  grid-template-columns: var(--portfolio-columns);
+  align-items: stretch;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+}
+#appendix-5 .portfolio-matrix-header { background: #103740; color: #fff; }
+#appendix-5 .portfolio-matrix-header > span {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: 11px 18px;
+  border-left: 1px solid #35565d;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+#appendix-5 .portfolio-matrix-header > span:first-child { border-left: 0; }
+#appendix-5 .portfolio-matrix-row { border-top: 1px solid #d7e4df; background: #fff; }
+#appendix-5 .portfolio-matrix-row:nth-of-type(even) { background: #edf4f1; }
+#appendix-5 .portfolio-matrix-row > [role="cell"] {
+  min-width: 0;
+  margin: 0;
+  padding: 12px 18px;
+  border-left: 1px solid #d7e4df;
+  font-size: 20px;
+  line-height: 1.32;
+  color: #344e54;
+  align-self: stretch;
+}
+#appendix-5 .portfolio-matrix-row > [role="cell"]:first-child {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  align-content: start;
+  gap: 12px;
+  border-left: 0;
+  color: #103740;
+}
+#appendix-5 .matrix-number {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #087a68;
+  font-variant-numeric: tabular-nums;
+}
+#appendix-5 .portfolio-matrix-row strong { font-size: 20px; line-height: 1.32; }
+#appendix-5 .portfolio-matrix-row > [role="cell"]:last-child { color: #103740; }
+#appendix-5 .portfolio-governance {
+  display: grid;
+  grid-template-columns: .9fr 2.1fr;
+  gap: 26px;
+  align-items: start;
+  flex: 0 0 auto;
+  padding: 15px 20px;
+  background: #e6f1ec;
+  border-left: 4px solid #159f86;
+  border-radius: 0 4px 4px 0;
+}
+#appendix-5 .portfolio-governance .eyebrow {
+  margin: 0 0 6px;
+  font-size: 12px;
+  line-height: 1.2;
+}
+#appendix-5 .portfolio-governance h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.25;
+}
+#appendix-5 .portfolio-governance > p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.38;
+  color: #344e54;
+}
+#appendix-5 .portfolio-footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  flex: 0 0 auto;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #cbded7;
+}
+#appendix-5 .portfolio-takeaway {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.35;
+  color: #50666b;
+}
+#appendix-5 .portfolio-takeaway strong { color: #087a68; }
+#appendix-5 .presentation-nav-slot { justify-self: end; width: min(690px, 100%); min-width: 0; }
+#appendix-5 .presentation-nav-slot #presentation-nav {
+  position: static;
+  inset: auto;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 4px;
+  box-shadow: none;
+}
+#appendix-5 .presentation-nav-slot #presentation-nav button,
+#appendix-5 .presentation-nav-slot #presentation-nav select {
+  height: 36px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+/* Smaller screens retain the matrix as a horizontally scrollable table. */
+@media (max-width:950px) {
+  #deck > #appendix-5 { padding: 26px 20px 20px; }
+  #appendix-5 .slide-head h1 { font-size: 30px; }
+  #appendix-5 .slide-head .intro { font-size: 18px; }
+  #appendix-5 .slide-body { flex: none; gap: 20px; }
+  #appendix-5 .portfolio-matrix { flex: none; }
+  #appendix-5 .portfolio-matrix-heading h2 { font-size: 20px; }
+  #appendix-5 .portfolio-matrix-table { display: block; flex: none; overflow-x: auto; }
+  #appendix-5 .portfolio-matrix-header,
+  #appendix-5 .portfolio-matrix-row { min-width: 1040px; }
+  #appendix-5 .portfolio-matrix-header > span { font-size: 17px; padding: 13px 16px; }
+  #appendix-5 .portfolio-matrix-row > [role="cell"] { font-size: 18px; padding: 16px; }
+  #appendix-5 .portfolio-matrix-row strong { font-size: 18px; }
+  #appendix-5 .portfolio-governance { grid-template-columns: 1fr; gap: 12px; }
+  #appendix-5 .portfolio-footer { margin-top: 20px; gap: 16px; }
+  #appendix-5 .presentation-nav-slot { width: 100%; }
+}
+@media (max-width:620px) {
+  #deck > #appendix-5 { padding: 24px 18px 20px; }
+  #appendix-5 .slide-head > .eyebrow { font-size: 12px; }
+  #appendix-5 .slide-head h1 { font-size: 28px; }
+  #appendix-5 .slide-head .intro { font-size: 17px; }
+  #appendix-5 .portfolio-governance { padding: 16px; }
+}
