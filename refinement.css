@@ -3901,3 +3901,143 @@ html{scroll-padding-top:0}
     gap:18px;
   }
 }
+
+
+/* === Slide 13 positioning: David-style comparison; wording unchanged === */
+@media (min-width:951px){
+  #page-13 .slide-body{
+    display:grid;
+    grid-template-rows:minmax(0,1fr) auto;
+    gap:26px;
+    min-height:0;
+  }
+
+  #page-13 .grid.three{
+    height:100%;
+    min-height:0;
+    margin:0;
+    gap:42px;
+    align-items:stretch;
+  }
+
+  #page-13 .grid.three .card{
+    height:100%;
+    min-height:0;
+    padding:34px 30px;
+    display:grid;
+    grid-template-rows:auto repeat(3,minmax(0,1fr));
+    gap:10px;
+    align-items:center;
+    background:#fff;
+    border:1px solid #d8e4e0;
+    border-top:1px solid #d8e4e0;
+    border-radius:6px;
+    box-shadow:0 4px 14px #102e3508;
+  }
+
+  #page-13 .grid.three .card:last-child{
+    background:#103740;
+    color:#fff;
+    border-color:#103740;
+  }
+
+  #page-13 .grid.three h3{
+    margin:0 0 18px;
+    font-size:24px;
+    line-height:1.2;
+    color:#103740;
+  }
+
+  #page-13 .grid.three .card:last-child h3{
+    color:#fff;
+  }
+
+  #page-13 .grid.three p{
+    position:relative;
+    margin:0;
+    padding:18px 0 18px 42px;
+    border:0;
+    display:flex;
+    align-items:center;
+    font-size:17px;
+    line-height:1.35;
+    color:#50666b;
+  }
+
+  #page-13 .grid.three p::before{
+    content:"◆";
+    position:absolute;
+    left:0;
+    top:50%;
+    transform:translateY(-50%) rotate(45deg);
+    color:#159f86;
+    font-size:15px;
+    line-height:1;
+  }
+
+  #page-13 .grid.three .card:last-child p{
+    color:#e4f2ef;
+  }
+
+  #page-13 .grid.three .card:last-child p::before{
+    color:#55dfbc;
+  }
+
+  #page-13 .callout{
+    justify-self:center;
+    width:54%;
+    min-width:620px;
+    margin:0;
+    padding:12px 20px;
+    border:0;
+    border-radius:10px;
+    background:#dff4ee;
+    color:#087a68;
+    text-align:center;
+    font-size:15.5px;
+    line-height:1.3;
+    font-weight:700;
+  }
+}
+
+@media (min-width:951px) and (max-height:800px){
+  #page-13 .slide-body{
+    gap:20px;
+  }
+
+  #page-13 .grid.three{
+    gap:34px;
+  }
+
+  #page-13 .grid.three .card{
+    padding:28px 26px;
+  }
+
+  #page-13 .grid.three h3{
+    margin-bottom:14px;
+    font-size:21px;
+  }
+
+  #page-13 .grid.three p{
+    padding:14px 0 14px 36px;
+    font-size:15.5px;
+  }
+
+  #page-13 .callout{
+    min-width:560px;
+    padding:10px 18px;
+    font-size:14px;
+  }
+}
+
+@media (max-width:950px){
+  #page-13 .grid.three .card:last-child{
+    background:#103740;
+    color:#fff;
+  }
+
+  #page-13 .grid.three .card:last-child h3,
+  #page-13 .grid.three .card:last-child p{
+    color:#fff;
+  }
+}
