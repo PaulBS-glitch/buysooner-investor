@@ -3322,3 +3322,135 @@ html{scroll-padding-top:0}
     margin:0;
   }
 }
+
+
+/* === Slide 18 proportional capital stack: David-style structure; wording unchanged === */
+@media (min-width:951px){
+  #page-18 .slide-body{
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr) auto auto;
+    gap:22px;
+    min-height:0;
+  }
+
+  #page-18 .slide-body>.eyebrow{
+    margin:0;
+    align-self:end;
+  }
+
+  #page-18 .architecture-stack-linear{
+    width:100%;
+    height:100%;
+    min-height:170px;
+    display:flex;
+    overflow:hidden;
+    border-radius:4px;
+    box-shadow:0 4px 14px #102e3508;
+  }
+
+  #page-18 .architecture-segment{
+    flex:var(--portion) 1 0;
+    min-width:0;
+    padding:24px 18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+
+  #page-18 .architecture-senior{
+    background:#103740;
+    color:#fff;
+  }
+
+  #page-18 .architecture-customer{
+    background:#e7f1ee;
+    color:#103740;
+    border-left:1px solid #d1e0db;
+  }
+
+  #page-18 .architecture-boost{
+    background:#55dfbc;
+    color:#103740;
+    border-left:1px solid #b9dcd2;
+  }
+
+  #page-18 .architecture-segment .number{
+    margin:0;
+    font-size:34px;
+    line-height:1.05;
+    font-weight:750;
+    letter-spacing:-.03em;
+    color:inherit;
+  }
+
+  #page-18 .architecture-segment .number + .number{
+    margin-top:8px;
+    font-size:22px;
+  }
+
+  #page-18 .architecture-segment h3{
+    margin:12px 0 0;
+    font-size:16px;
+    line-height:1.25;
+    color:inherit;
+  }
+
+  #page-18 .slide-body>p:not(.eyebrow):not(.callout){
+    margin:0;
+    font-size:16px;
+    line-height:1.45;
+    color:#50666b;
+  }
+
+  #page-18 .callout{
+    margin:0;
+    padding:18px 22px;
+    text-align:center;
+    font-size:16px;
+    font-weight:700;
+  }
+}
+
+@media (min-width:951px) and (max-height:800px){
+  #page-18 .slide-body{
+    gap:18px;
+  }
+
+  #page-18 .architecture-stack-linear{
+    min-height:145px;
+  }
+
+  #page-18 .architecture-segment{
+    padding:18px 14px;
+  }
+
+  #page-18 .architecture-segment .number{
+    font-size:30px;
+  }
+
+  #page-18 .architecture-segment .number + .number{
+    font-size:19px;
+  }
+
+  #page-18 .architecture-segment h3{
+    margin-top:9px;
+    font-size:14px;
+  }
+}
+
+@media (max-width:950px){
+  #page-18 .architecture-stack-linear{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  #page-18 .architecture-segment{
+    flex:none;
+    min-height:110px;
+    border-left:0;
+    border-radius:4px;
+  }
+}
