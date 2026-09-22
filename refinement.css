@@ -2378,3 +2378,552 @@ html{scroll-padding-top:0}
   }
   #contents .contents-begin{width:100%}
 }
+
+
+/* =====================================================================
+   SLIDES 6-20 — FULL-CANVAS DESKTOP REBALANCE
+   Layout only. Copy, figures, calculations and navigation are unchanged.
+   ===================================================================== */
+@media (min-width:951px){
+
+  #page-6,#page-7,#page-8,#page-9,#page-10,
+  #page-11,#page-12,#page-13,#page-14,#page-15,
+  #page-16,#page-17,#page-18,#page-19,#page-20{
+    padding:34px 76px 22px;
+    display:flex;
+    flex-direction:column;
+  }
+
+  #page-6 .slide-head,#page-7 .slide-head,#page-8 .slide-head,#page-9 .slide-head,#page-10 .slide-head,
+  #page-11 .slide-head,#page-12 .slide-head,#page-13 .slide-head,#page-14 .slide-head,#page-15 .slide-head,
+  #page-16 .slide-head,#page-17 .slide-head,#page-18 .slide-head,#page-19 .slide-head,#page-20 .slide-head{
+    width:100%;
+    max-width:1448px;
+    margin:0 auto;
+    flex:0 0 auto;
+  }
+
+  #page-6 .slide-head>.eyebrow,#page-7 .slide-head>.eyebrow,#page-8 .slide-head>.eyebrow,#page-9 .slide-head>.eyebrow,#page-10 .slide-head>.eyebrow,
+  #page-11 .slide-head>.eyebrow,#page-12 .slide-head>.eyebrow,#page-13 .slide-head>.eyebrow,#page-14 .slide-head>.eyebrow,#page-15 .slide-head>.eyebrow,
+  #page-16 .slide-head>.eyebrow,#page-17 .slide-head>.eyebrow,#page-18 .slide-head>.eyebrow,#page-19 .slide-head>.eyebrow,#page-20 .slide-head>.eyebrow{
+    margin:0 0 9px;
+    font-size:13px;
+  }
+
+  #page-6 .slide-head h1,#page-7 .slide-head h1,#page-8 .slide-head h1,#page-9 .slide-head h1,#page-10 .slide-head h1,
+  #page-11 .slide-head h1,#page-12 .slide-head h1,#page-13 .slide-head h1,#page-14 .slide-head h1,#page-15 .slide-head h1,
+  #page-16 .slide-head h1,#page-17 .slide-head h1,#page-18 .slide-head h1,#page-19 .slide-head h1,#page-20 .slide-head h1{
+    max-width:1380px;
+    margin:0 0 12px;
+    font-size:40px;
+    line-height:1.06;
+    letter-spacing:-.03em;
+  }
+
+  #page-6 .intro,#page-7 .intro,#page-8 .intro,#page-9 .intro,#page-10 .intro,
+  #page-11 .intro,#page-12 .intro,#page-13 .intro,#page-14 .intro,#page-15 .intro,
+  #page-16 .intro,#page-17 .intro,#page-18 .intro,#page-19 .intro,#page-20 .intro{
+    max-width:1400px;
+    margin:0;
+    font-size:16.5px;
+    line-height:1.43;
+  }
+
+  #page-6 .slide-body,#page-7 .slide-body,#page-8 .slide-body,#page-9 .slide-body,#page-10 .slide-body,
+  #page-11 .slide-body,#page-12 .slide-body,#page-13 .slide-body,#page-14 .slide-body,#page-15 .slide-body,
+  #page-16 .slide-body,#page-17 .slide-body,#page-18 .slide-body,#page-19 .slide-body,#page-20 .slide-body{
+    width:100%;
+    max-width:1370px;
+    margin:24px auto 0;
+    flex:1 1 auto;
+    min-height:0;
+  }
+
+  #page-6 .page-footer,#page-7 .page-footer,#page-8 .page-footer,#page-9 .page-footer,#page-10 .page-footer,
+  #page-11 .page-footer,#page-12 .page-footer,#page-13 .page-footer,#page-14 .page-footer,#page-15 .page-footer,
+  #page-16 .page-footer,#page-17 .page-footer,#page-18 .page-footer,#page-19 .page-footer,#page-20 .page-footer{
+    width:100%;
+    max-width:1370px;
+    margin:16px auto 0;
+    padding-top:9px;
+    flex:0 0 auto;
+  }
+
+  /* 6 — Market timing */
+  #page-6 .slide-body{
+    display:grid;
+    grid-template-rows:150px minmax(0,1fr);
+    gap:24px;
+  }
+  #page-6 .metrics{
+    height:150px;
+    margin:0;
+    border-radius:5px;
+    overflow:hidden;
+  }
+  #page-6 .metrics article{
+    padding:24px 22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #page-6 .metrics .number{font-size:42px;margin-bottom:10px}
+  #page-6 .grid.two{
+    height:100%;
+    min-height:0;
+    margin:0;
+    grid-template-columns:1.45fr 1fr;
+    gap:34px;
+    align-items:stretch;
+  }
+  #page-6 .grid.two>div{
+    min-height:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+  }
+  #page-6 .grid.two>div>h3{margin:0 0 12px}
+  #page-6 .chart{
+    flex:1 1 auto;
+    min-height:0;
+    height:auto;
+    padding-top:10px;
+  }
+  #page-6 .grid.two .card{
+    height:100%;
+    padding:30px 30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+
+  /* 7 — Stress testing */
+  #page-7 .slide-body{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  #page-7 .table-scroll{
+    flex:1 1 auto;
+    min-height:0;
+    overflow:hidden;
+  }
+  #page-7 table{
+    height:100%;
+    table-layout:fixed;
+  }
+  #page-7 th,#page-7 td{
+    padding:17px 20px;
+    vertical-align:middle;
+  }
+  #page-7 td:last-child{
+    font-size:25px;
+    font-weight:700;
+    color:#087e65;
+  }
+  #page-7 .callout{
+    flex:0 0 auto;
+    margin:20px 0 0;
+    padding:17px 20px;
+  }
+
+  /* 8 — Refinance strategy */
+  #page-8 .slide-body{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  #page-8 .refinance-pathways{
+    flex:1 1 auto;
+    min-height:0;
+    margin:0;
+    grid-template-columns:1fr 1fr;
+    gap:30px 48px;
+    align-items:stretch;
+  }
+  #page-8 .refinance-pathways .card,
+  #page-8 .plan-endpoint{
+    min-height:0;
+    height:100%;
+  }
+  #page-8 .plan-a{
+    padding:28px;
+    grid-template-columns:150px 1fr;
+    align-items:start;
+  }
+  #page-8 .plan-b,#page-8 .plan-later{
+    padding:26px 28px;
+  }
+  #page-8 .plan-endpoint{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:28px 30px;
+  }
+  #page-8 .callout{
+    flex:0 0 auto;
+    margin:20px 0 0;
+    padding:17px 20px;
+  }
+
+  /* 9 — Risk controls */
+  #page-9 .slide-body{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  #page-9 .grid.three{
+    flex:1 1 auto;
+    min-height:0;
+    margin:0;
+    gap:32px;
+    align-items:stretch;
+  }
+  #page-9 .grid.three .card{
+    height:100%;
+    padding:30px 28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #page-9 .callout{margin:20px 0 0;padding:17px 20px}
+
+  /* 10 — Capital economics */
+  #page-10 .slide-body{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  #page-10 .grid.three{
+    flex:1 1 auto;
+    min-height:0;
+    margin:0;
+    gap:32px;
+    align-items:stretch;
+  }
+  #page-10 .grid.three .card{
+    height:100%;
+    padding:30px 28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #page-10 .slide-body>h3{
+    margin:20px 0 10px;
+  }
+  #page-10 .callout{
+    margin:0;
+    padding:17px 20px;
+  }
+
+  /* 11 — BuySooner economics */
+  #page-11 .slide-body{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  #page-11 .grid.two{
+    flex:1 1 auto;
+    min-height:0;
+    margin:0;
+    grid-template-columns:1.05fr 1fr;
+    gap:50px;
+    padding-left:24px;
+    align-items:stretch;
+  }
+  #page-11 .waterfall{
+    height:100%;
+    min-height:0;
+    padding-top:0;
+    grid-template-rows:26px repeat(4,minmax(0,1fr));
+    gap:15px;
+  }
+  #page-11 .exit{
+    height:100%;
+    min-height:0;
+    padding:22px 24px;
+    grid-template-rows:26px repeat(3,minmax(0,1fr)) auto auto;
+    gap:13px;
+  }
+  #page-11 .waterfall .card{
+    height:100%;
+    min-height:0;
+    padding:14px 18px;
+  }
+  #page-11 .exit-item{min-height:0}
+  #page-11 .callout{
+    margin:18px 0 0;
+    padding:16px 20px;
+  }
+
+  /* 12 — Structural housing thesis */
+  #page-12 .slide-body{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  #page-12 .grid.three{
+    flex:1 1 auto;
+    min-height:0;
+    margin:0;
+    padding:0;
+    gap:32px;
+    align-items:stretch;
+  }
+  #page-12 .grid.three .card{
+    height:100%;
+    padding:28px 28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #page-12 .slide-body>h3{
+    margin:20px 0 10px;
+  }
+  #page-12 .callout{margin:0;padding:17px 20px}
+
+  /* 13 — Positioning */
+  #page-13 .slide-body{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  #page-13 .grid.three{
+    flex:1 1 auto;
+    min-height:0;
+    margin:0;
+    gap:32px;
+    align-items:stretch;
+  }
+  #page-13 .grid.three .card{
+    height:100%;
+    padding:30px 28px;
+    grid-template-rows:auto repeat(3,1fr);
+    align-items:center;
+  }
+  #page-13 .callout{margin:20px 0 0;padding:17px 20px}
+
+  /* 14 — Market opportunity */
+  #page-14 .slide-body{
+    display:grid;
+    grid-template-rows:136px auto minmax(0,1fr) auto auto;
+    gap:14px;
+    min-height:0;
+  }
+  #page-14 .metrics{
+    height:136px;
+    margin:0;
+  }
+  #page-14 .metrics article{
+    padding:20px 22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #page-14 .metrics .number{font-size:38px;margin-bottom:8px}
+  #page-14 .slide-body>.eyebrow{margin:0;align-self:end}
+  #page-14 .grid.two{
+    height:100%;
+    min-height:0;
+    margin:0;
+    grid-template-columns:.78fr 1.8fr;
+    gap:34px;
+    align-items:stretch;
+  }
+  #page-14 .grid.two .card{
+    height:100%;
+    padding:28px;
+    display:flex;
+    align-items:center;
+  }
+  #page-14 .slide-body>p:not(.eyebrow):not(.footnote){
+    margin:0;
+    font-size:15px;
+    line-height:1.4;
+  }
+  #page-14 .footnote{margin:0;font-size:11.5px;line-height:1.35}
+
+  /* 15 — Go-to-market */
+  #page-15 .slide-body{
+    display:grid;
+    grid-template-rows:minmax(0,1.1fr) minmax(0,.72fr);
+    gap:24px;
+    min-height:0;
+  }
+  #page-15 .grid.five{
+    height:100%;
+    min-height:0;
+    margin:0;
+    gap:22px;
+    align-items:stretch;
+  }
+  #page-15 .grid.five .card{
+    height:100%;
+    min-height:0;
+    padding:24px 20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #page-15 .grid.two{
+    height:100%;
+    min-height:0;
+    margin:0;
+    gap:28px;
+    align-items:stretch;
+  }
+  #page-15 .grid.two .card{
+    height:100%;
+    padding:26px 28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+
+  /* 16 — Technology */
+  #page-16 .slide-body{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  #page-16 .grid.three{
+    flex:1 1 auto;
+    min-height:0;
+    margin:0;
+    gap:32px;
+    align-items:stretch;
+  }
+  #page-16 .grid.three .card{
+    height:100%;
+    padding:30px 28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #page-16 .grid h3{min-height:0}
+  #page-16 .callout{margin:20px 0 0;padding:17px 20px}
+
+  /* 17 — Leadership team */
+  #page-17 .slide-body{
+    display:flex;
+    min-height:0;
+  }
+  #page-17 .team{
+    width:100%;
+    height:100%;
+    min-height:0;
+    margin:0;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-rows:repeat(2,minmax(0,1fr));
+    gap:22px;
+  }
+  #page-17 .person{
+    height:100%;
+    min-height:0;
+    padding:22px;
+    grid-template-columns:82px 1fr;
+    grid-template-rows:34px 40px 1fr;
+    gap:5px 18px;
+    align-content:start;
+  }
+  #page-17 .person img{
+    width:82px;
+    height:82px;
+  }
+  #page-17 .person p:last-child{
+    align-self:center;
+    margin:12px 0 0;
+    font-size:15px;
+    line-height:1.42;
+  }
+
+  /* 18 — Capital architecture */
+  #page-18 .slide-body{
+    display:grid;
+    grid-template-rows:auto 92px 174px auto auto;
+    gap:15px;
+    min-height:0;
+  }
+  #page-18 .slide-body>.eyebrow{margin:0;align-self:end}
+  #page-18 .architecture-stack{
+    height:92px;
+    margin:0;
+    gap:0;
+  }
+  #page-18 .architecture-stack i span{font-size:28px}
+  #page-18 .architecture-labels{
+    height:174px;
+    margin:0;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-rows:1fr;
+    gap:20px;
+  }
+  #page-18 .architecture-labels .card{
+    height:100%;
+    min-height:0;
+    padding:24px 22px;
+    border-radius:4px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #page-18 .architecture-labels h3{margin:0 0 12px;font-size:18px}
+  #page-18 .architecture-labels p{font-size:24px;margin:2px 0}
+  #page-18 .slide-body>p:not(.eyebrow):not(.callout){
+    margin:0;
+    font-size:15.5px;
+    line-height:1.4;
+    align-self:center;
+  }
+  #page-18 .callout{margin:0;padding:17px 20px}
+
+  /* 19 — The opportunity */
+  #page-19 .slide-body{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  #page-19 .grid.two{
+    flex:1 1 auto;
+    min-height:0;
+    margin:0;
+    padding:0 18px;
+    gap:32px 46px;
+    align-items:stretch;
+  }
+  #page-19 .grid.two .card{
+    height:100%;
+    min-height:0;
+    padding:28px 30px;
+    display:flex;
+    align-items:center;
+  }
+  #page-19 .cycle-heading{font-size:28px;margin-bottom:14px}
+  #page-19 .callout{margin:20px 0 0;padding:17px 20px}
+
+  /* 20 — Readiness */
+  #page-20 .slide-body{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  #page-20 .grid.two{
+    flex:1 1 auto;
+    min-height:0;
+    margin:0;
+    gap:32px;
+    align-items:stretch;
+  }
+  #page-20 .grid.two .card{
+    height:100%;
+    min-height:0;
+    padding:28px 30px;
+    grid-template-rows:auto repeat(6,minmax(0,1fr));
+  }
+  #page-20 .grid.two h3{font-size:19px}
+  #page-20 .check{
+    min-height:0;
+    padding:10px 0;
+  }
+  #page-20 .callout{margin:20px 0 0;padding:17px 20px}
+}
