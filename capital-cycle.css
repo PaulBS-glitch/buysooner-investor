@@ -175,3 +175,41 @@
   #appendix-7 .mechanic,
   #appendix-7 .appendix7-takeaway{animation:none!important;opacity:1!important}
 }
+
+
+/* Appendix 7 final spacing: remove the dead middle zone and strengthen lifecycle readability. */
+@media (min-width:951px){
+  #appendix-7 .slide-body{
+    justify-content:flex-start;
+    gap:20px;
+  }
+  #appendix-7 .capital-lifecycle{
+    margin:18px auto 0;
+  }
+  #appendix-7 .institutional-mechanics{
+    margin:0 auto;
+    padding:17px 18px 15px;
+  }
+  #appendix-7 .lifecycle-stage{
+    padding:18px 16px 16px;
+  }
+  #appendix-7 .lifecycle-stage .stage-number{
+    margin-bottom:10px;
+    font-size:30px;
+  }
+  #appendix-7 .lifecycle-stage h3{
+    font-size:18px;
+    margin-bottom:8px;
+  }
+  #appendix-7 .lifecycle-stage p{
+    font-size:14px;
+    line-height:1.38;
+  }
+  #appendix-7 .priority-flow{
+    font-size:11px;
+    line-height:1.3;
+  }
+  #appendix-7 .institutional-mechanics h2{font-size:14px;}
+  #appendix-7 .mechanic .eyebrow{font-size:11px;}
+  #appendix-7 .mechanic p:last-child{font-size:13px;}
+}
