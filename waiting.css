@@ -95,3 +95,37 @@
     pointer-events:none;
   }
 }
+
+
+/* Appendix 1: compact the calculator vertically so the investor takeaway has a clear footer lane. */
+@media (min-width:951px){
+  #deck > #appendix-1{padding:20px 42px 58px;}
+  #appendix-1 .waiting-head{margin-bottom:10px;}
+  #appendix-1 .waiting-head .eyebrow{margin-bottom:7px;}
+  #appendix-1 .waiting-head h1{font-size:48px;margin-bottom:8px;}
+  #appendix-1 .waiting-head .intro{font-size:16px;line-height:1.32;}
+  #appendix-1 .waiting-inputs{padding:12px 18px;gap:7px 12px;}
+  #appendix-1 .waiting-control label{min-height:20px;font-size:10px;}
+  #appendix-1 .waiting-control select,
+  #appendix-1 .waiting-money-input{min-height:40px;}
+  #appendix-1 .waiting-results{margin-top:7px;}
+  #appendix-1 .waiting-maths,
+  #appendix-1 .waiting-costs,
+  #appendix-1 .waiting-choice{padding:13px 18px;margin-top:7px;}
+  #appendix-1 .waiting-form-copy h2,
+  #appendix-1 .waiting-maths h2,
+  #appendix-1 .waiting-costs h2,
+  #appendix-1 .waiting-choice h2{font-size:24px;}
+  #appendix-1 .waiting-result-grid{gap:10px;margin-top:9px;}
+  #appendix-1 .waiting-result-grid article{min-height:82px;padding:10px 14px;}
+  #appendix-1 .cost-path{margin-top:7px;}
+  #appendix-1 .waiting-cost-grid{gap:10px;margin-top:9px;}
+  #appendix-1 .waiting-cost-grid article{min-height:102px;padding:13px 20px;}
+  #appendix-1 .waiting-cost-grid h3{font-size:19px;margin-bottom:6px;}
+  #appendix-1 .waiting-cost-grid .delay-cost strong{font-size:48px;}
+  #appendix-1 .waiting-cost-grid strong{font-size:38px;}
+  #appendix-1 .choice-grid{gap:10px;margin-top:9px;}
+  #appendix-1 .choice-grid article{min-height:76px;padding:11px 18px;}
+  #appendix-1 .choice-grid h3{font-size:18px;margin-bottom:4px;}
+  #appendix-1 .waiting-calculator-detail .calculator-caveat{margin-top:7px;padding:8px 12px;}
+}
