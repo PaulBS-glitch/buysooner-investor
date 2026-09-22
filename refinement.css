@@ -3454,3 +3454,99 @@ html{scroll-padding-top:0}
     border-radius:4px;
   }
 }
+
+
+/* === Slide 16 technology: David-style compact cards; wording unchanged === */
+@media (min-width:951px){
+  #page-16 .slide-body{
+    display:grid;
+    grid-template-rows:minmax(0,1fr) auto;
+    gap:34px;
+    min-height:0;
+  }
+
+  #page-16 .grid.three{
+    height:100%;
+    min-height:0;
+    margin:0;
+    gap:34px;
+    align-items:center;
+  }
+
+  #page-16 .grid.three .card{
+    height:72%;
+    min-height:0;
+    padding:28px 26px;
+    display:block;
+    align-self:center;
+    border-top:1px solid #dbe7e3;
+    border-left:6px solid #55dfbc;
+    border-radius:5px;
+    box-shadow:0 4px 14px #102e3508;
+    background:#fff;
+  }
+
+  #page-16 .grid.three .card:nth-child(2){
+    border-left-color:#477d9b;
+  }
+
+  #page-16 .grid.three .card:nth-child(3){
+    border-left-color:#159f86;
+  }
+
+  #page-16 .grid.three h3{
+    min-height:0;
+    margin:0 0 16px;
+    font-size:23px;
+    line-height:1.2;
+    color:#103740;
+  }
+
+  #page-16 .grid.three p{
+    margin:0;
+    font-size:17px;
+    line-height:1.48;
+    color:#50666b;
+  }
+
+  #page-16 .callout{
+    margin:0;
+    padding:0;
+    background:transparent;
+    border:0;
+    color:#103740;
+    text-align:center;
+    font-size:24px;
+    line-height:1.25;
+    font-weight:700;
+  }
+}
+
+@media (min-width:951px) and (max-height:800px){
+  #page-16 .slide-body{
+    gap:24px;
+  }
+
+  #page-16 .grid.three{
+    gap:28px;
+  }
+
+  #page-16 .grid.three .card{
+    height:76%;
+    padding:24px 22px;
+  }
+
+  #page-16 .grid.three h3{
+    font-size:21px;
+    margin-bottom:13px;
+  }
+
+  #page-16 .grid.three p{
+    font-size:15.5px;
+    line-height:1.42;
+  }
+
+  #page-16 .callout{
+    font-size:21px;
+  }
+}
