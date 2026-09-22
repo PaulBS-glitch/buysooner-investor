@@ -9,3 +9,20 @@
 @media(max-width:1350px){.waiting-head .intro{white-space:normal}.waiting-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.waiting-form-copy{grid-column:1/-1}.waiting-scenario{grid-column:1/-1}.waiting-control label{min-height:auto}}
 @media(max-width:820px){.waiting-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}.waiting-form-copy,.waiting-scenario{grid-column:1/-1}.waiting-result-grid,.waiting-cost-grid,.choice-grid{grid-template-columns:1fr}.waiting-maths,.waiting-costs,.waiting-choice,.waiting-inputs{padding:19px}.cost-path{grid-template-columns:auto 1fr auto}.cost-path strong{grid-column:1/-1;grid-row:2}.cost-path i:nth-of-type(2){display:none}.waiting-cost-grid article{min-height:0}.waiting-calculator-detail .appendix-takeaway{align-items:flex-start;flex-direction:column}}
 @media(max-width:500px){.waiting-calculator-detail{padding:22px 18px}.waiting-inputs{grid-template-columns:1fr}.waiting-form-copy,.waiting-scenario{grid-column:auto}.waiting-head h1{font-size:44px}.waiting-head .intro{font-size:16px}.waiting-cost-grid .delay-cost strong{font-size:47px}}
+
+/* Appendix 1: keep navigation below the rent explanation, not over it. */
+@media (min-width:951px){
+  #deck > #appendix-1{border-bottom:0;}
+  #deck #appendix-1 > #presentation-nav{
+    bottom:0;
+    height:44px;
+    padding:3px;
+    margin:0;
+  }
+  #deck #appendix-1 > #presentation-nav button,
+  #deck #appendix-1 > #presentation-nav select{
+    height:36px;
+    padding-top:6px;
+    padding-bottom:6px;
+  }
+}
