@@ -26,3 +26,72 @@
     padding-bottom:6px;
   }
 }
+/* Appendices 2 and 3: reserve a footer lane without changing the copy. */
+@media (min-width:951px){
+  #appendix-2 .slide-head h1,
+  #appendix-3 .slide-head h1,
+  #appendix-2 .intro,
+  #appendix-3 .intro{max-width:none;}
+  #deck > #appendix-2,
+  #deck > #appendix-3{
+    border-bottom:0;
+    padding-bottom:64px;
+  }
+  #deck #appendix-2 > #presentation-nav,
+  #deck #appendix-3 > #presentation-nav{
+    bottom:8px;
+    height:44px;
+    padding:3px;
+    margin:0;
+    box-shadow:none;
+  }
+  #deck #appendix-2 > #presentation-nav button,
+  #deck #appendix-2 > #presentation-nav select,
+  #deck #appendix-3 > #presentation-nav button,
+  #deck #appendix-3 > #presentation-nav select{
+    height:36px;
+    padding-top:6px;
+    padding-bottom:6px;
+  }
+  #appendix-2 .appendix-takeaway,
+  #appendix-3 .risk-takeaway{
+    margin-top:14px;
+    padding:12px 20px;
+  }
+  #appendix-2 .eligibility-panel,
+  #appendix-3 .risk-panel{
+    padding-top:20px;
+    padding-bottom:20px;
+  }
+  #appendix-2 .eligibility-summaries{
+    margin-top:18px;
+    gap:14px 18px;
+  }
+  #appendix-2 .exclusion-box{
+    margin-top:18px;
+    padding:14px 18px;
+  }
+  #appendix-3 .risk-row:last-child{margin-bottom:0;}
+  #appendix-3 .risk-controls{margin-top:16px;}
+  #appendix-3 .risk-exit{
+    margin-top:18px;
+    padding-top:16px;
+  }
+}
+
+/* Appendix 3: one straight connector from review to the right-hand panel. */
+@media (min-width:951px){
+  #appendix-3 .diagram-link.classification{display:none;}
+  #appendix-3 .risk-row:last-child{position:relative;}
+  #appendix-3 .risk-row:last-child::after{
+    content:"";
+    position:absolute;
+    left:calc(100% + 3px);
+    top:calc(50% - 5px);
+    width:36px;
+    height:10px;
+    background:#159f86;
+    clip-path:polygon(0 40%,72% 40%,72% 0,100% 50%,72% 100%,72% 60%,0 60%);
+    pointer-events:none;
+  }
+}
