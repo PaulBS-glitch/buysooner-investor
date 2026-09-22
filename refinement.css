@@ -4741,3 +4741,107 @@ html{scroll-padding-top:0}
     font-size:13px;
   }
 }
+
+
+/* === Contents page typography scale-up; wording/behaviour unchanged === */
+@media (min-width:951px){
+  #contents{
+    padding:54px 72px 28px;
+  }
+
+  #contents .contents-head{
+    padding-bottom:30px;
+  }
+
+  #contents .contents-head .eyebrow{
+    margin-bottom:12px;
+    font-size:13.5px;
+    letter-spacing:.08em;
+  }
+
+  #contents .contents-head h1{
+    margin-bottom:18px;
+    font-size:52px;
+    line-height:1.02;
+    letter-spacing:-.03em;
+  }
+
+  #contents .contents-purpose{
+    max-width:1260px;
+    font-size:20px;
+    line-height:1.42;
+  }
+
+  #contents .contents-sections{
+    padding-top:34px;
+  }
+
+  #contents .contents-disclosure-trigger{
+    gap:42px;
+    padding:30px 0;
+  }
+
+  #contents .contents-disclosure-trigger>span:first-child strong{
+    margin-bottom:9px;
+    font-size:30px;
+    line-height:1.12;
+  }
+
+  #contents .contents-disclosure-trigger small{
+    max-width:1100px;
+    font-size:17px;
+    line-height:1.42;
+  }
+
+  #contents .contents-disclosure-meta{
+    min-width:235px;
+    font-size:13.5px;
+  }
+
+  #contents .contents-disclosure-meta b{
+    margin-top:8px;
+    font-size:14px;
+  }
+
+  #contents .contents-begin{
+    min-width:185px;
+    padding:13px 26px;
+    font-size:14px;
+  }
+}
+
+@media (min-width:951px) and (max-height:800px){
+  #contents{
+    padding:42px 64px 24px;
+  }
+
+  #contents .contents-head{
+    padding-bottom:22px;
+  }
+
+  #contents .contents-head h1{
+    margin-bottom:14px;
+    font-size:47px;
+  }
+
+  #contents .contents-purpose{
+    font-size:18px;
+    line-height:1.38;
+  }
+
+  #contents .contents-sections{
+    padding-top:26px;
+  }
+
+  #contents .contents-disclosure-trigger{
+    padding:24px 0;
+  }
+
+  #contents .contents-disclosure-trigger>span:first-child strong{
+    font-size:27px;
+  }
+
+  #contents .contents-disclosure-trigger small{
+    font-size:15.5px;
+  }
+}
