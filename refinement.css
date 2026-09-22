@@ -3715,3 +3715,189 @@ html{scroll-padding-top:0}
     font-size:14.5px;
   }
 }
+
+
+/* === Slide 14 market opportunity: David-style metric cards + integrated wedge; wording unchanged === */
+@media (min-width:951px){
+  #page-14 .slide-body{
+    display:grid;
+    grid-template-rows:170px minmax(0,1fr) auto auto;
+    gap:22px;
+    min-height:0;
+  }
+
+  #page-14 .market-metrics{
+    height:170px;
+    margin:0;
+    background:transparent;
+    gap:28px;
+  }
+
+  #page-14 .market-metrics article{
+    height:100%;
+    padding:28px 24px 24px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    background:#fff;
+    border:1px solid #d8e4e0;
+    border-radius:28px;
+    box-shadow:0 3px 12px #102e3505;
+  }
+
+  #page-14 .market-metrics .number{
+    margin:0 0 18px;
+    font-size:42px;
+    color:#103740;
+  }
+
+  #page-14 .market-metrics .caption{
+    margin:0 0 8px;
+    font-size:14px;
+    line-height:1.35;
+    color:#103740;
+  }
+
+  #page-14 .market-metrics .caption:last-child{
+    margin-top:auto;
+    margin-bottom:0;
+    font-size:11px;
+    color:#63787c;
+  }
+
+  #page-14 .market-wedge-panel{
+    min-height:0;
+    padding:30px 36px;
+    background:#f2f6f5;
+    border:1px solid #d8e4e0;
+    border-radius:28px;
+    box-shadow:0 3px 12px #102e3505;
+  }
+
+  #page-14 .market-wedge-panel>.eyebrow{
+    margin:0 0 22px;
+    color:#477bea;
+    font-size:12px;
+  }
+
+  #page-14 .market-wedge-content{
+    display:grid;
+    grid-template-columns:.95fr 1.45fr;
+    gap:48px;
+    align-items:center;
+  }
+
+  #page-14 .market-wedge-lead h3{
+    margin:0;
+    font-size:29px;
+    line-height:1.2;
+    color:#103740;
+  }
+
+  #page-14 .market-wedge-copy h3{
+    margin:0;
+    font-size:19px;
+    line-height:1.42;
+    font-weight:500;
+    color:#103740;
+  }
+
+  #page-14 .market-wedge-copy strong{
+    font-size:31px;
+    color:#087e65;
+    font-weight:750;
+  }
+
+  #page-14 .wedge-support{
+    display:inline;
+    margin:0;
+    font-size:inherit;
+    color:inherit;
+  }
+
+  #page-14 .slide-body>p:not(.footnote){
+    margin:0 12px;
+    font-size:15px;
+    line-height:1.42;
+    color:#103740;
+    font-weight:700;
+  }
+
+  #page-14 .footnote{
+    margin:0 12px;
+    font-size:11px;
+    line-height:1.35;
+    color:#63787c;
+  }
+}
+
+@media (min-width:951px) and (max-height:800px){
+  #page-14 .slide-body{
+    grid-template-rows:148px minmax(0,1fr) auto auto;
+    gap:18px;
+  }
+
+  #page-14 .market-metrics{
+    height:148px;
+    gap:22px;
+  }
+
+  #page-14 .market-metrics article{
+    padding:22px 20px 20px;
+    border-radius:22px;
+  }
+
+  #page-14 .market-metrics .number{
+    font-size:36px;
+    margin-bottom:14px;
+  }
+
+  #page-14 .market-wedge-panel{
+    padding:24px 30px;
+    border-radius:22px;
+  }
+
+  #page-14 .market-wedge-content{
+    gap:36px;
+  }
+
+  #page-14 .market-wedge-lead h3{
+    font-size:25px;
+  }
+
+  #page-14 .market-wedge-copy h3{
+    font-size:17px;
+  }
+
+  #page-14 .market-wedge-copy strong{
+    font-size:27px;
+  }
+}
+
+@media (max-width:950px){
+  #page-14 .market-metrics{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    background:transparent;
+  }
+
+  #page-14 .market-metrics article{
+    border:1px solid #d8e4e0;
+    border-radius:18px;
+    background:#fff;
+  }
+
+  #page-14 .market-wedge-panel{
+    padding:22px;
+    border:1px solid #d8e4e0;
+    border-radius:18px;
+    background:#f2f6f5;
+  }
+
+  #page-14 .market-wedge-content{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+}
