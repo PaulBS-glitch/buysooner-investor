@@ -62,6 +62,8 @@ const observer=new IntersectionObserver(entries=>{
   .forEach(target=>observer.observe(target));
 
 function pageFromHash(){
+  // The former Appendix 6A now forms part of Appendix 6.
+  if(location.hash==='#appendix-6a')history.replaceState(null,'','#appendix-6');
   const found=slides.findIndex(slide=>'#'+slide.id===location.hash);
   return found>=0?found:0;
 }

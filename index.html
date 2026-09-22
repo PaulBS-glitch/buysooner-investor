@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="./waiting.css">
 <link rel="stylesheet" href="./portfolio.css?v=20260921-matrix">
 <link rel="stylesheet" href="./capital-cycle.css">
-<link rel="stylesheet" href="./worked-example.css?v=20260922-footerfix">
+<link rel="stylesheet" href="./worked-example.css?v=20260922-combined6">
 <link rel="stylesheet" href="./presentation.css?v=20260922-deckaudit2">
 <link rel="stylesheet" href="./refinement.css?v=20260922-deckaudit2">
 <link rel="stylesheet" href="./main-deck.css?v=20260922-deckaudit2">
@@ -71,7 +71,7 @@
 <strong>Appendices</strong>
 <small>Supporting analysis on customer eligibility, underwriting, exit pathways, portfolio controls, customer economics and the investor capital cycle.</small>
 </span>
-<span class="contents-disclosure-meta">8 supporting pages <b aria-hidden="true">Explore ↓</b></span>
+<span class="contents-disclosure-meta">7 supporting pages <b aria-hidden="true">Explore ↓</b></span>
 </button>
 <div class="contents-disclosure-panel" id="contents-appendices-panel" hidden>
 <div class="contents-appendix-list">
@@ -84,7 +84,6 @@
 <div>
 <h3>Capital &amp; economics</h3>
 <a href="#appendix-6" data-presentation-target="appendix-6"><span>Appendix 6</span><strong>Five-year worked example</strong></a>
-<a href="#appendix-6a" data-presentation-target="appendix-6a"><span>Appendix 6A</span><strong>Customer proposition &amp; value exchange</strong></a>
 <a href="#appendix-7" data-presentation-target="appendix-7"><span>Appendix 7</span><strong>Investor capital cycle</strong></a>
 </div>
 <div>
@@ -1030,13 +1029,6 @@
 </a>
 </article>
 <article class="card reveal appendix-link">
-<p class="eyebrow">Appendix 6A</p>
-<h3>The Customer Proposition &amp; Value Exchange</h3>
-<a class="appendix-button" href="#appendix-6a" data-slide-target="appendix-6a">Open appendix <span aria-hidden="true">↓</span>
-<span class="sr-only">: The Customer Proposition and Value Exchange</span>
-</a>
-</article>
-<article class="card reveal appendix-link">
 <p class="eyebrow">Appendix 7</p>
 <h3>Investor capital cycle</h3>
 <a class="appendix-button" href="#appendix-7" data-slide-target="appendix-7">Open appendix <span aria-hidden="true">↓</span>
@@ -1386,85 +1378,61 @@
 </div>
 </section>
 <section class="slide appendix-detail worked-example-detail enhanced-slide" id="appendix-6">
-<div class="slide-head reveal">
+<div class="slide-head worked-overview-head">
+<div class="worked-title-row">
+<div>
 <p class="eyebrow">Appendix 6 / Five-year worked example</p>
 <h1>How the numbers work over five years.</h1>
+</div>
+<label class="worked-growth-control" for="worked-growth">
+<span>Annual property growth</span>
+<select id="worked-growth" aria-label="Annual property growth assumption">
+<option value="3">3%</option><option value="4">4%</option><option value="5" selected>5%</option><option value="6">6%</option><option value="7">7%</option>
+</select>
+</label>
+</div>
 <p class="intro">A worked $1,000,000 purchase showing what the customer gains by buying today and what BuySooner receives when it exits.</p>
 </div>
-<div class="slide-body">
-<section class="worked-numbers reveal" aria-labelledby="worked-numbers-title">
-<div class="worked-section-heading">
-<h2 id="worked-numbers-title">The Numbers in Action</h2>
-<label class="worked-forecast" for="worked-growth"><span>Forecast</span><select id="worked-growth" aria-label="Annual property growth assumption"><option value="3">3%</option><option value="4">4%</option><option value="5" selected="">5%</option><option value="6">6%</option><option value="7">7%</option></select></label>
-</div>
-<div class="worked-pair">
-<article class="worked-panel">
-<h3>The Setup</h3>
-<dl>
+<div class="slide-body worked-overview-body">
+<dl class="worked-setup-strip" aria-label="The Setup">
 <div><dt>The Goal</dt><dd>$1,000,000 home</dd></div>
 <div><dt>Your Start</dt><dd>$100,000 deposit</dd></div>
-<div><dt>The Boost</dt><dd class="worked-teal">BuySooner adds $100,000</dd></div>
+<div><dt>The Boost</dt><dd>BuySooner adds $100,000</dd></div>
 <div><dt>The mortgage</dt><dd>$800,000</dd></div>
 </dl>
-</article>
-<article class="worked-panel">
-<h3>5 Years Later</h3>
+<div class="worked-outcomes">
+<section class="worked-outcome worked-ownership" aria-labelledby="worked-ownership-title">
+<h2 id="worked-ownership-title">Value of Ownership</h2>
 <dl>
-<div><dt>New house value</dt><dd data-worked="value" data-value="1276281.5625000005" aria-label="$1,276,282">$1,276,282</dd></div>
-<div><dt>BuySooner capital repaid</dt><dd>$100,000</dd></div>
-<div><dt>BuySooner participation component</dt><dd class="worked-gold" data-worked="participation" data-value="134345.427631579" aria-label="$134,345">$134,345</dd></div>
-<div><dt>Total BuySooner payout</dt><dd data-worked="payout" data-value="234345.427631579" aria-label="$234,345">$234,345</dd></div>
+<div class="worked-detail-row"><dt>New house value</dt><dd data-worked="value">$1,276,282</dd></div>
+<div class="worked-detail-row"><dt>Property growth</dt><dd data-worked="growth">$276,282</dd></div>
+<div class="worked-highlight-row"><dt>Growth retained after participation</dt><dd data-worked="retained">$141,936</dd></div>
 </dl>
-</article>
-</div>
 </section>
-
-<section class="investment-split reveal" aria-labelledby="investment-split-title">
-<h2 id="investment-split-title">The Investment Split</h2>
-<div class="worked-pair">
-<article class="split-panel">
-<div class="worked-donut ownership-donut" role="img" aria-label="Customer retains 51.4% and BuySooner receives 48.6% of property growth" style="--split: 51.37372670983835%;"><span>Value of<br>Ownership</span></div>
-<div class="split-copy"><h3>Value of Ownership</h3><dl><div><dt>Property growth captured</dt><dd class="worked-teal" data-worked="growth" data-value="276281.56250000047" aria-label="+$276,282">+$276,282</dd></div><div><dt>Rent redirected</dt><dd class="worked-teal">+$195,000</dd></div></dl></div>
-</article>
-<article class="split-panel">
-<div class="worked-donut partnership-donut" role="img" aria-label="BuySooner payout comprises $100,000 original capital and $134,345 participation" style="--split: 42.67205083139613%;"><span>Investment<br>Partnership</span></div>
-<div class="split-copy"><h3>Investment<br>Partnership</h3><dl><div><dt>Original BuySooner capital</dt><dd>$100,000</dd></div><div><dt>BuySooner participation component</dt><dd class="worked-gold" data-worked="participation" data-value="134345.427631579" aria-label="$134,345">$134,345</dd></div><div><dt>Total BuySooner payout</dt><dd data-worked="payout" data-value="234345.427631579" aria-label="$234,345">$234,345</dd></div></dl></div>
-</article>
-</div>
-</section>
-
-<section class="worked-bottom-line reveal" aria-labelledby="bottom-line-title">
-<h2 id="bottom-line-title">The Bottom Line</h2>
-<div class="bottom-line-row"><strong data-worked="participation" data-value="134345.427631579" aria-label="$134,345">$134,345</strong><p>BuySooner gets its original capital back and receives <b data-worked="participation" data-value="134345.427631579" aria-label="$134,345">$134,345</b> as the participation component.</p></div>
-<div class="bottom-line-row"><strong data-worked="retained" data-value="141936.13486842148" aria-label="+$141,936">+$141,936</strong><p>You keep <b data-worked="retained-plain" data-value="141936.13486842148" aria-label="$141,936">$141,936</b> of the property growth after BuySooner’s participation component.</p></div>
-<div class="bottom-line-row"><strong>+$195,000</strong><p>Your $195,000 of rent has been paying your mortgage instead of a landlord.</p></div>
-</section>
-
-<p class="calculator-caveat reveal"><strong>Illustrative assumptions:</strong> $1,000,000 property, 10% customer deposit, 10% BuySooner contribution, $750 weekly rent, five-year term and k = 4.75. Mortgage interest, transaction costs and selling costs are not included. Property growth and refinance outcomes are not guaranteed.</p>
-</div>
-<div class="appendix6-footer reveal">
-<p class="appendix6-takeaway"><strong>Appendix takeaway:</strong> the worked example shows the five-year customer and BuySooner economics transparently across a selectable range of property-growth assumptions.</p>
-<div class="presentation-nav-slot" aria-label="Presentation navigation position"></div>
-</div>
-</section>
-<section class="slide appendix-detail worked-example-detail worked-value-detail enhanced-slide" id="appendix-6a">
-<div class="slide-head">
-<p class="eyebrow">Appendix 6A / The customer proposition &amp; value exchange</p>
-<h1>The Honest Trade-Off.</h1>
-<p class="intro">You have the income. We bridge the gap. You own the future.</p>
-</div>
-<div class="slide-body">
-<section class="honest-tradeoff honest-tradeoff-expanded" aria-label="The Honest Trade-Off">
-<div class="tradeoff-grid">
-<article><span class="tradeoff-icon" aria-hidden="true">⚖</span><h3>The Reality</h3><p>BuySooner risks $100,000 of its capital to bridge your deposit gap today.</p></article>
-<article><span class="tradeoff-icon" aria-hidden="true">↻</span><h3>The Trade</h3><p>When you refinance, BuySooner is repaid its original contribution plus the participation component.</p></article>
-<article><span class="tradeoff-icon" aria-hidden="true">⌂</span><h3>The Outcome</h3><p>You move into the home you love years earlier. You stop losing money to rent and start capturing your share of market growth.</p></article>
-<article><span class="tradeoff-icon" aria-hidden="true">🔑</span><h3>The Point</h3><p>You own the home from Day 1. BuySooner provides the capital to start sooner.</p></article>
-</div>
+<section class="worked-outcome worked-partnership" aria-labelledby="worked-partnership-title">
+<h2 id="worked-partnership-title">Investment Partnership</h2>
+<dl>
+<div class="worked-detail-row"><dt>Original BuySooner capital</dt><dd>$100,000</dd></div>
+<div class="worked-detail-row"><dt>Participation component</dt><dd data-worked="participation">$134,345</dd></div>
+<div class="worked-highlight-row"><dt>Total BuySooner payout</dt><dd data-worked="payout">$234,345</dd></div>
+</dl>
 </section>
 </div>
-<div class="appendix6-footer">
-<p class="appendix6-takeaway"><strong>Appendix 6A:</strong> The Honest Trade-Off separates the customer value exchange from the worked transaction economics.</p>
+<div class="worked-rent-context">
+<div><span>Rent over five years</span><strong>$195,000</strong></div>
+<p>$750 per week. Shown separately, not added to retained growth as a net financial gain.</p>
+</div>
+<section class="worked-tradeoff" aria-labelledby="worked-tradeoff-title">
+<h2 id="worked-tradeoff-title">The Honest Trade-Off.</h2>
+<div>
+<p><strong>You own the home from Day 1.</strong> BuySooner provides the capital to start sooner.</p>
+<p>When you refinance, BuySooner is repaid its original contribution plus the participation component.</p>
+</div>
+</section>
+<p class="sr-only" id="worked-scenario-status" role="status" aria-live="polite" aria-atomic="true"></p>
+</div>
+<div class="worked-overview-footer">
+<p class="worked-disclosure"><strong>Illustrative assumptions:</strong> $1,000,000 property, 10% customer deposit, 10% BuySooner contribution, $750 weekly rent, five-year term and k = 4.75. Mortgage interest, transaction costs and selling costs are not included. Property growth and refinance outcomes are not guaranteed.</p>
 <div class="presentation-nav-slot" aria-label="Presentation navigation position"></div>
 </div>
 </section>
@@ -1594,19 +1562,18 @@
 <option value="26">26 — Appendix 4 — Exit risk and fallback pathways</option>
 <option value="27">27 — Appendix 5 — Portfolio construction and concentration controls</option>
 <option value="28">28 — Appendix 6 — Five-year worked example</option>
-<option value="29">29 — Appendix 6A — Customer proposition &amp; value exchange</option>
-<option value="30">30 — Appendix 7 — Investor capital cycle</option>
-<option value="31">31 — Important notice</option>
+<option value="29">29 — Appendix 7 — Investor capital cycle</option>
+<option value="30">30 — Important notice</option>
 </select>
 <button id="next" type="button">Next →</button>
 </div>
-<script src="./script.js?v=20260922-disclosures1">
+<script src="./script.js?v=20260922-combined6">
 </script>
 <script src="./waiting.js">
 </script>
-<script src="./worked-example.js">
+<script src="./worked-example.js?v=20260922-combined6">
 </script>
-<script src="./presentation.js?v=20260922-deckaudit2"></script>
+<script src="./presentation.js?v=20260922-combined6"></script>
 
 
 </body></html>
