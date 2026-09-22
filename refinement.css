@@ -3550,3 +3550,168 @@ html{scroll-padding-top:0}
     font-size:21px;
   }
 }
+
+
+/* === Slide 15 go-to-market: David-style horizontal workflow; wording unchanged === */
+@media (min-width:951px){
+  #page-15 .slide-body{
+    display:grid;
+    grid-template-rows:minmax(0,1fr) 150px;
+    gap:30px;
+    min-height:0;
+  }
+
+  #page-15 .grid.five{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    gap:42px!important;
+    height:100%;
+    min-height:0;
+    margin:0;
+    align-items:stretch;
+  }
+
+  #page-15 .grid.five .diagram-links{
+    display:none;
+  }
+
+  #page-15 .grid.five .card{
+    position:relative;
+    height:100%;
+    min-height:0;
+    padding:28px 20px 24px;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    justify-content:center;
+    gap:18px!important;
+    background:#fff;
+    border:1px solid #d8e4e0;
+    border-top:1px solid #d8e4e0;
+    border-radius:5px;
+    box-shadow:0 4px 14px #102e3508;
+  }
+
+  #page-15 .grid.five .card:not(:last-of-type)::after{
+    content:"→";
+    position:absolute;
+    top:50%;
+    right:-34px;
+    transform:translateY(-50%);
+    color:#55dfbc;
+    font-size:38px;
+    line-height:1;
+    font-weight:700;
+  }
+
+  #page-15 .grid.five .card:nth-of-type(3){
+    background:#103740;
+    border-color:#103740;
+  }
+
+  #page-15 .grid.five h3{
+    margin:0!important;
+    font-size:36px;
+    line-height:1;
+    color:#55dfbc;
+  }
+
+  #page-15 .grid.five p{
+    margin:0!important;
+    font-size:18px;
+    line-height:1.25;
+    font-weight:700;
+    color:#103740;
+  }
+
+  #page-15 .grid.five .card:nth-of-type(3) p{
+    color:#fff;
+  }
+
+  #page-15 .grid.two{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:34px;
+    height:150px;
+    min-height:0;
+    margin:0;
+    align-items:stretch;
+  }
+
+  #page-15 .grid.two .card{
+    height:100%;
+    min-height:0;
+    padding:22px 26px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background:#fff;
+    border-top:1px solid #d8e4e0;
+    border-left:6px solid #55dfbc;
+    border-radius:4px;
+    box-shadow:0 4px 14px #102e3508;
+  }
+
+  #page-15 .grid.two .card:nth-child(2){
+    border-left-color:#477d9b;
+  }
+
+  #page-15 .grid.two h3{
+    margin:0 0 10px;
+    font-size:21px;
+    line-height:1.2;
+  }
+
+  #page-15 .grid.two p{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.4;
+    color:#50666b;
+  }
+}
+
+@media (min-width:951px) and (max-height:800px){
+  #page-15 .slide-body{
+    grid-template-rows:minmax(0,1fr) 126px;
+    gap:24px;
+  }
+
+  #page-15 .grid.five{
+    gap:36px!important;
+  }
+
+  #page-15 .grid.five .card{
+    padding:22px 17px 20px;
+  }
+
+  #page-15 .grid.five h3{
+    font-size:32px;
+  }
+
+  #page-15 .grid.five p{
+    font-size:16px;
+  }
+
+  #page-15 .grid.five .card:not(:last-of-type)::after{
+    right:-30px;
+    font-size:32px;
+  }
+
+  #page-15 .grid.two{
+    height:126px;
+    gap:28px;
+  }
+
+  #page-15 .grid.two .card{
+    padding:18px 22px;
+  }
+
+  #page-15 .grid.two h3{
+    font-size:19px;
+  }
+
+  #page-15 .grid.two p{
+    font-size:14.5px;
+  }
+}
