@@ -1412,3 +1412,77 @@ html{scroll-padding-top:0}
     font-size:15.5px;
   }
 }
+
+
+/* Standard investor takeaway treatment across the appendix suite. */
+.appendix-standard-takeaway{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:28px;
+  margin:0;
+  padding:12px 20px;
+  background:#103740;
+  color:#e6faf4;
+  border-left:4px solid #55dfbc;
+}
+.appendix-standard-takeaway p{
+  margin:0;
+  font-size:16px;
+  line-height:1.4;
+  color:#e6faf4;
+}
+.appendix-standard-takeaway strong{color:#65e6c3;}
+.appendix-standard-takeaway .appendix-back{
+  flex:0 0 auto;
+  font-size:13px;
+  padding:8px 12px;
+}
+#appendix-1 .appendix-standard-takeaway{margin-top:7px;}
+#appendix-4 .exit-governance-footer{
+  gap:8px;
+  margin-top:12px;
+}
+#appendix-4 .appendix-standard-takeaway{margin:0;}
+#appendix-5 .portfolio-footer{
+  gap:8px;
+  padding-top:0;
+  border-top:0;
+}
+#appendix-5 .appendix-standard-takeaway{margin:0;}
+#appendix-6 .worked-overview-footer{
+  gap:8px;
+  margin-top:10px;
+  padding-top:0;
+  border-top:0;
+}
+#appendix-6 .appendix-standard-takeaway{margin:0;}
+#appendix-6 .worked-disclosure{
+  padding-top:8px;
+  border-top:1px solid var(--worked-line);
+}
+#appendix-7 .appendix7-footer{
+  max-width:none;
+  grid-template-columns:1fr;
+  gap:8px;
+  margin-top:10px;
+  padding-top:0;
+  border-top:0;
+}
+#appendix-7 .appendix-standard-takeaway{margin:0;}
+#appendix-7 .appendix7-nav-slot{
+  width:min(690px,100%);
+  justify-self:end;
+}
+@media(max-width:950px){
+  .appendix-standard-takeaway{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:12px;
+  }
+  #appendix-5 .portfolio-footer,
+  #appendix-6 .worked-overview-footer,
+  #appendix-7 .appendix7-footer{gap:14px;}
+  #appendix-7 .appendix7-nav-slot{width:100%;}
+}
